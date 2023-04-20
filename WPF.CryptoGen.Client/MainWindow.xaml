@@ -6,11 +6,15 @@
         xmlns:local="clr-namespace:WPF.CryptoGen.Client"
         xmlns:views="clr-namespace:WPF.CryptoGen.Client.Views"
         xmlns:viewmodels="clr-namespace:WPF.CryptoGen.Client.ViewModels"
-        xmlns:controls="clr-namespace:WPF.CryptoGen.Client.Components"
+        xmlns:components="clr-namespace:WPF.CryptoGen.Client.Components"
         mc:Ignorable="d"
         Title="MainWindow" Width="1000" Height="600">
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
         <Grid.Resources>
             <DataTemplate DataType="{x:Type viewmodels:CryptocurrencyViewModel}">
                 <views:CryptocurrencyView/>
@@ -18,8 +22,11 @@
             <DataTemplate DataType="{x:Type viewmodels:ExchangesViewModel}">
                 <views:ExchangesView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:SettingsViewModel}">
+                <views:SettingsView/>
+            </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodels:LayoutViewModel}">
-                <controls:Layout />
+                <components:Layout />
             </DataTemplate>
         </Grid.Resources>
 

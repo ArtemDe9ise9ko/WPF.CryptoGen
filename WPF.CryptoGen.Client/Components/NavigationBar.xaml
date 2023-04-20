@@ -105,6 +105,7 @@
             Width="25"
             Cursor="Hand"
             HorizontalAlignment="Right"
+            Command="{Binding NavigateSettingsCommand}"
             Content="{StaticResource ISettings}" 
             Style="{StaticResource imgButton}"/>
     </Grid>

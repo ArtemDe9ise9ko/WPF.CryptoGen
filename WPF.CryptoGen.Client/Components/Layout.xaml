@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="WPF.CryptoGen.Client.Components.Layout"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF.CryptoGen.Client.Components" 
+             xmlns:viewmodels="clr-namespace:WPF.CryptoGen.Client.ViewModels" 
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1000">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <local:NavigationBar Grid.Row="0" BorderThickness="0, 2, 0, 2" BorderBrush="#faebcd" DataContext="{Binding NavigationBarViewModel}"/>
+        
+        <ContentControl
+            Grid.Row="1"
+            MaxWidth="1000"
+            Margin="20"
+            Content="{Binding ContentViewModel}" />
+    </Grid>
+</UserControl>

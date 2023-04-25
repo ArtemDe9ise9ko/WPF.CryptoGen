@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="NavBackgroundColor" Color="#383838"/>
+    <SolidColorBrush x:Key="ContentBackgroundColor" Color="#121212"/>
+
+    <SolidColorBrush x:Key="IsMouseOverTag" Color="#bbffb3"/>
+    <SolidColorBrush x:Key="IsCheckedTag" Color="#70fc60"/>
+    
+    <SolidColorBrush x:Key="TextColor" Color="#fff"/>
+    <SolidColorBrush x:Key="NavTextColor" Color="#fff"/>
+    <SolidColorBrush x:Key="HeaderTextColor" Color="#fff"/>
+    
+</ResourceDictionary>

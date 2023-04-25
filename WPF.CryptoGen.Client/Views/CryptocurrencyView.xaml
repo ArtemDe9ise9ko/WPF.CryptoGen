@@ -12,6 +12,6 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <TextBlock FontSize="28" Text="Cryptocurrency" Margin="30"/>
+        <TextBlock FontSize="28" Text="Cryptocurrency" Margin="30" Foreground="{DynamicResource HeaderTextColor}"/>
     </Grid>
 </UserControl>

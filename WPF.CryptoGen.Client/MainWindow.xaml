@@ -8,13 +8,9 @@
         xmlns:viewmodels="clr-namespace:WPF.CryptoGen.Client.ViewModels"
         xmlns:components="clr-namespace:WPF.CryptoGen.Client.Components"
         mc:Ignorable="d"
-        Title="MainWindow" Width="1000" Height="600">
+        Title="MainWindow" Width="1000" Height="600"
+        Background="{DynamicResource ContentBackgroundColor}">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        
         <Grid.Resources>
             <DataTemplate DataType="{x:Type viewmodels:CryptocurrencyViewModel}">
                 <views:CryptocurrencyView/>

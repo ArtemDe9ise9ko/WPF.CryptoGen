@@ -1,10 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 using WPF.CryptoGen.Client.Interfaces;
 using WPF.CryptoGen.Client.Services;
@@ -30,13 +25,18 @@ namespace WPF.CryptoGen.Client
             services.AddTransient<ExchangesViewModel>();
             services.AddTransient<SettingsViewModel>();
 
+            services.AddTransient<IThemesDataService, ThemesDataService>();
             services.AddTransient(CreateNavigationBarViewModel);
             
             PrepareOnStartup(services);
 
             _serviceProvider = services.BuildServiceProvider();
         }
-
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            _serviceProvider.GetRequiredService<INavigationService>().Navigate();
+            _serviceProvider.GetRequiredService<MainWindow>().Show();
+        }
         private void PrepareOnStartup(IServiceCollection services)
         {
             services.AddSingleton<MainViewModel>();
@@ -46,7 +46,6 @@ namespace WPF.CryptoGen.Client
                 DataContext = s.GetRequiredService<MainViewModel>()
             });
         }
-
         private NavigationBarViewModel CreateNavigationBarViewModel(IServiceProvider serviceProvider)
         {
             return new NavigationBarViewModel(
@@ -54,7 +53,6 @@ namespace WPF.CryptoGen.Client
                 CreateExchangesNavigationService(serviceProvider),
                 CreateSettingsNavigationService(serviceProvider));
         }
-
         private INavigationService CreateExchangesNavigationService(IServiceProvider serviceProvider)
         {
             return new LayoutNavigationService<ExchangesViewModel>(
@@ -75,13 +73,6 @@ namespace WPF.CryptoGen.Client
                 serviceProvider.GetRequiredService<NavigationStore>(),
                 () => serviceProvider.GetRequiredService<SettingsViewModel>(),
                 () => serviceProvider.GetRequiredService<NavigationBarViewModel>());
-        }
-        protected override void OnStartup(StartupEventArgs e)
-        {
-            _serviceProvider.GetRequiredService<INavigationService>().Navigate();
-            _serviceProvider.GetRequiredService<MainWindow>().Show();
-
-            //base.OnStartup(e);
         }
     }
 }

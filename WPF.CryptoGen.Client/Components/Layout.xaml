@@ -13,12 +13,12 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <local:NavigationBar Grid.Row="0" BorderThickness="0, 2, 0, 2" BorderBrush="#faebcd" DataContext="{Binding NavigationBarViewModel}"/>
+        <local:NavigationBar Grid.Row="0" BorderThickness="0, 0, 0, 1" BorderBrush="{DynamicResource NavTextColor}" DataContext="{Binding NavigationBarViewModel}"/>
         
         <ContentControl
             Grid.Row="1"
             MaxWidth="1000"
-            Margin="20"
             Content="{Binding ContentViewModel}" />
+        
     </Grid>
 </UserControl>

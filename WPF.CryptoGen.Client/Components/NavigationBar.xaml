@@ -3,60 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WPF.CryptoGen.Client.Components"
+             xmlns:local="clr-namespace:WPF.CryptoGen.Client.Components" 
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1000"
-             Background="#fff">
-    <UserControl.Resources>
-        <Image x:Key="ISettings" Source="/assets/settings.png"/>
-        <Image x:Key="ILogo" Source="/assets/WhiteThemeCat.png"/>
-        <Style x:Key="imgButton" TargetType="Button">
-            <Setter Property="Background" Value="Transparent" />
-            <Setter Property="BorderBrush" Value="Transparent" />
-            <Setter Property="VerticalAlignment" Value="Top" />
-            <Setter Property="Opacity" Value="0.7" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Name="border" BorderThickness="0" BorderBrush="Black" Background="{TemplateBinding Background}">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Opacity" Value="1" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <Style x:Key="navButton" TargetType="Button">
-            <Setter Property="Background" Value="Transparent" />
-            <Setter Property="Foreground" Value="White" />
-            <Setter Property="BorderThickness" Value="0" />
-            <Setter Property="Cursor" Value="Hand" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <TextBlock Text="{TemplateBinding Content}" />
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="Button">
-                                <TextBlock Text="{TemplateBinding Content}" TextDecorations="Underline" />
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-    </UserControl.Resources>
-    <Grid MaxWidth="1000" Margin="20 10">
+             Background="{DynamicResource NavBackgroundColor}">
+    <Grid MaxWidth="1000" Margin="20 10" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="auto" />
@@ -64,49 +16,64 @@
             <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Button 
+        
+        <StackPanel 
             Grid.Column="0"
             VerticalAlignment="Top"
-            Height="30"  
-            Width="30"
-            Content="{StaticResource ILogo}" 
-            Style="{StaticResource imgButton}"/>
+            Height="30"
+            Margin="8"
+            Orientation="Horizontal">
 
+            <fa:IconImage Icon="Ello" Foreground="{DynamicResource NavTextColor}"/>
+        </StackPanel>
+        
         <TextBlock
             Grid.Column="1"
             FontSize="20"
-            Padding="10 0 0 0"
+            Padding="0 8 0 0"
             FontWeight="Bold"
-            Foreground="Black"
-            Text="Logo"/>
-
-        <Button
-            Grid.Column="2"
-            Margin="30 5 0 0"
-            FontSize="16"
-            Foreground="Black"
-            Content="Cryptocurrencies"
+            Text="Logo"
+            Foreground="{DynamicResource NavTextColor}"/>
+        
+        <RadioButton 
+            Style="{StaticResource NavButton}"
+            IsChecked="True"
+            Margin="20, 0"
             Command="{Binding NavigateCryptoCurrenciesCommand}"
-            Style="{StaticResource navButton}"/>
+            Grid.Column="2"
+            Cursor="Hand"
+            VerticalAlignment="Top">
 
-        <Button
-            Grid.Column="3"
-            Margin="10 5 0 0"
-            FontSize="16"
-            Foreground="Black"
-            Content="Exchanges" 
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Cryptocurrencies" Style="{StaticResource menuButtonText}"/>
+            </StackPanel>
+        </RadioButton>
+
+        <RadioButton 
+            Style="{StaticResource NavButton}"
+            Margin="10, 0"
             Command="{Binding NavigateExchangesCommand}"
-            Style="{StaticResource navButton}"/>
+            Grid.Column="3"
+            Cursor="Hand"
+            VerticalAlignment="Top">
 
-        <Button 
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Exchanges" Style="{StaticResource menuButtonText}"/>
+            </StackPanel>
+        </RadioButton>
+
+        <RadioButton 
             Grid.Column="4"
-            Margin="0 5 5 0"
-            Height="25"  
-            Width="25"
+            Margin="10,0"
             Cursor="Hand"
             HorizontalAlignment="Right"
+            VerticalAlignment="Top"
             Command="{Binding NavigateSettingsCommand}"
-            Content="{StaticResource ISettings}" 
-            Style="{StaticResource imgButton}"/>
+            Style="{DynamicResource NavButton}">
+
+            <StackPanel Orientation="Horizontal">
+                <fa:IconImage Icon="Gear" Foreground="{DynamicResource NavTextColor}" Height="30"/>
+            </StackPanel>
+        </RadioButton>
     </Grid>
 </UserControl>

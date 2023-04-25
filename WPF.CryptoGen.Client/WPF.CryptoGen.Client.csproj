@@ -7,27 +7,33 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="1919184-200.png" />
-    <None Remove="assets\moon.png" />
-    <None Remove="assets\settings.png" />
-    <None Remove="assets\WhiteThemeCat.png" />
-    <None Remove="earth.png" />
-    <None Remove="moon.png" />
-    <None Remove="settings.png" />
-    <None Remove="sunny.png" />
-    <None Remove="three-dots.png" />
+    <Page Remove="Themes\DarkTheme.xaml" />
+    <Page Remove="Themes\DefaultStyle.xaml" />
+    <Page Remove="Themes\DefaultTheme.xaml" />
+    <Page Remove="Themes\LightTheme.xaml" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="FontAwesome.Sharp" Version="6.3.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="assets\settings.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Resource Include="Themes\DarkTheme.xaml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Resource>
-    <Resource Include="assets\WhiteThemeCat.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Resource Include="Themes\DefaultStyle.xaml">
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Themes\DefaultTheme.xaml">
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Themes\LightTheme.xaml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Resource>
   </ItemGroup>
 

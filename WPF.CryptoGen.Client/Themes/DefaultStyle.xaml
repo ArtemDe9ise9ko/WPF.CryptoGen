@@ -25,7 +25,7 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    
+    <!--RadioButton-->
     <Style x:Key="NavButton" TargetType="RadioButton">
         <Setter Property="Height" Value="50"/>
         <Setter Property="Background" Value="Transparent"/>
@@ -63,7 +63,7 @@
         <Setter Property="FontSize" Value="20"/>
     </Style>
 
-    <!--General text-->
+    <!--TextBlock-->
     <Style x:Key="MyTextBlock" TargetType="TextBlock">
         <Setter Property="FontStyle" Value="Normal"/>
         <Setter Property="FontFamily" Value="Gotham Rounded Book"/>
@@ -78,6 +78,6 @@
 
     <!--Scrollbar-->
     
-    <!--RadioButton-->
+
 
 </ResourceDictionary>

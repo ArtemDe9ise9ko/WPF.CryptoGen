@@ -31,8 +31,12 @@
         <Line Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6" X1="70" Y1="0" X2="910" Y2="0" Stroke="{DynamicResource HeaderTextColor}" StrokeThickness="1.5" VerticalAlignment="Bottom"/>
         <Line Grid.Column="0" Grid.Row="1" Grid.RowSpan="4" X1="0" Y1="0" X2="0" Y2="520" Stroke="{DynamicResource HeaderTextColor}" StrokeThickness="1.5" HorizontalAlignment="Right"/>
 
-        <Button Grid.Column="1" Grid.Row="2" FontSize="20" Content="Default" Margin="30, 10, 0, 10" Command="{Binding ThemeChangeCommand}" Foreground="{DynamicResource TextColor}" CommandParameter="Default" Style="{DynamicResource ConfigButton}"/>
-        <Button Grid.Column="2" Grid.Row="2" FontSize="20" Content="Dark" Margin="10" Command="{Binding ThemeChangeCommand}" Foreground="{DynamicResource TextColor}" CommandParameter="Dark" Style="{DynamicResource ConfigButton}"/>
-        <Button Grid.Column="3" Grid.Row="2" FontSize="20" Content="Light" Margin="10" Command="{Binding ThemeChangeCommand}" Foreground="{DynamicResource TextColor}" CommandParameter="Light" Style="{DynamicResource ConfigButton}"/>
+        <Button Grid.Column="1" Grid.Row="2" FontSize="20" HorizontalAlignment="Center" Content="Default" Margin="30, 10, 0, 10" Command="{Binding ThemeChangeCommand}" Foreground="{DynamicResource TextColor}" CommandParameter="Default" Style="{DynamicResource ConfigButton}"/>
+        <Button Grid.Column="2" Grid.Row="2" FontSize="20" HorizontalAlignment="Center" Content="Dark" Margin="10" Command="{Binding ThemeChangeCommand}" Foreground="{DynamicResource TextColor}" CommandParameter="Dark" Style="{DynamicResource ConfigButton}"/>
+        <Button Grid.Column="3" Grid.Row="2" FontSize="20" HorizontalAlignment="Center" Content="Light" Margin="10" Command="{Binding ThemeChangeCommand}" Foreground="{DynamicResource TextColor}" CommandParameter="Light" Style="{DynamicResource ConfigButton}"/>
+
+        <Button Grid.Column="1" Grid.Row="3" FontSize="20" HorizontalAlignment="Center" Content="English" Margin="30, 10, 0, 10" Command="{Binding LanguageChangeCommand}" Foreground="{DynamicResource TextColor}" CommandParameter="en-US" Style="{DynamicResource ConfigButton}"/>
+        <Button Grid.Column="2" Grid.Row="3" FontSize="20" HorizontalAlignment="Center" Content="Українська" Margin="10" Command="{Binding LanguageChangeCommand}" Foreground="{DynamicResource TextColor}" CommandParameter="uk-UA" Style="{DynamicResource ConfigButton}"/>
+        <Button Grid.Column="3" Grid.Row="3" FontSize="20" HorizontalAlignment="Center" Content="Polska" Margin="10" Command="{Binding LanguageChangeCommand}" Foreground="{DynamicResource TextColor}" CommandParameter="pl-PL" Style="{DynamicResource ConfigButton}"/>
     </Grid>
 </UserControl>

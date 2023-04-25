@@ -9,6 +9,8 @@ using System.IO;
 using System.Reflection;
 using System.Resources;
 using System.Linq;
+using System.Globalization;
+using System.Threading;
 
 namespace WPF.CryptoGen.Client.Services
 {

@@ -7,10 +7,6 @@ namespace WPF.CryptoGen.Client.Command
 {
     public class ChangeThemesCommand : CommandBase
     {
-        public ChangeThemesCommand()
-        {
-        }
-
         public override void Execute(object parameter)
         {
             IThemesDataService themesDataService = new ThemesDataService();

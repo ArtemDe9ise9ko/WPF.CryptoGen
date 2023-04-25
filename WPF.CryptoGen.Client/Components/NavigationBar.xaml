@@ -4,6 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPF.CryptoGen.Client.Components" 
+             xmlns:lex="http://wpflocalizeextension.codeplex.com"
+             lex:LocalizeDictionary.DesignCulture="uk-UA"
+             lex:ResxLocalizationProvider.DefaultAssembly="WPF.CryptoGen.Client"
+             lex:ResxLocalizationProvider.DefaultDictionary="Langs"
              xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1000"
@@ -45,7 +49,8 @@
             VerticalAlignment="Top">
 
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Cryptocurrencies" Style="{StaticResource menuButtonText}"/>
+                <TextBlock Text="{lex:Loc Cryptocurrencies}"
+                           Style="{StaticResource menuButtonText}"/>
             </StackPanel>
         </RadioButton>
 
@@ -58,7 +63,8 @@
             VerticalAlignment="Top">
 
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Exchanges" Style="{StaticResource menuButtonText}"/>
+                <TextBlock Text="{lex:Loc Exchanges}"
+                           Style="{StaticResource menuButtonText}"/>
             </StackPanel>
         </RadioButton>
 

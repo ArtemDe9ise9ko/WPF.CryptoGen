@@ -18,8 +18,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF.CryptoGen.Infrastructur
 		{BB71C574-AE9E-412D-8DE2-856FC777ED88} = {BB71C574-AE9E-412D-8DE2-856FC777ED88}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF.CryptoGen.Theme", "WPF.CryptoGen.Theme\WPF.CryptoGen.Theme.csproj", "{09DCBE5F-659C-492B-BBFB-8F7B2E36AEDC}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,10 +40,6 @@ Global
 		{CD0B13DD-A0AD-4C3B-A3C9-78A552127E8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD0B13DD-A0AD-4C3B-A3C9-78A552127E8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD0B13DD-A0AD-4C3B-A3C9-78A552127E8B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{09DCBE5F-659C-492B-BBFB-8F7B2E36AEDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{09DCBE5F-659C-492B-BBFB-8F7B2E36AEDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{09DCBE5F-659C-492B-BBFB-8F7B2E36AEDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{09DCBE5F-659C-492B-BBFB-8F7B2E36AEDC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPF.CryptoGen.Client.Views"
+             xmlns:oxy="http://oxyplot.org/wpf"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1000">
     <Grid>
@@ -13,5 +14,14 @@
         </Grid.RowDefinitions>
 
         <TextBlock FontSize="28" Text="Cryptocurrency" Margin="30" Foreground="{DynamicResource HeaderTextColor}"/>
+
+        <oxy:PlotView 
+            Grid.Row="1" 
+            Model="{Binding PlotModel}" 
+            Background="Transparent" 
+            Foreground="{DynamicResource IsCheckedTag}"
+            >
+            
+        </oxy:PlotView>
     </Grid>
 </UserControl>

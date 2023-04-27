@@ -11,4 +11,8 @@
     <SolidColorBrush x:Key="NavTextColor" Color="#fff"/>
     <SolidColorBrush x:Key="HeaderTextColor" Color="#000"/>
 
+    <SolidColorBrush x:Key="LineSeriesColor" Color="#7002bf"/>
+    <SolidColorBrush x:Key="AreaSeriesColor" Color="#e3c0fc"/>
+    <!--<SolidColorBrush x:Key="LineSeriesColor" Color="#42fa2d" f5f/>-->
+    <!--<SolidColorBrush x:Key="AxisTextColor" Color="#fff"/>-->
 </ResourceDictionary>

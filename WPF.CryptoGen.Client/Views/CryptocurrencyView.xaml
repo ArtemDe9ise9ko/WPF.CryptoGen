@@ -10,18 +10,23 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <TextBlock FontSize="28" Text="Cryptocurrency" Margin="30" Foreground="{DynamicResource HeaderTextColor}"/>
 
         <oxy:PlotView 
-            Grid.Row="1" 
-            Model="{Binding PlotModel}" 
-            Background="Transparent" 
-            Foreground="{DynamicResource IsCheckedTag}"
-            >
-            
+            Margin="50"
+            Grid.Row="1"
+            Model="{Binding PlotModel}"
+            Background="Transparent"
+            Controller="{Binding PlotController}">
+            <!--MouseMove="{Binding MouseMoveCommand}"-->
+            <!--MouseMove="{Binding MouseMoveCommand}"-->
         </oxy:PlotView>
+        
+        <!--<Canvas Grid.Row="1">
+            <TextBlock Canvas.Left="50" Canvas.Top="200" Text="{Binding CurrentPointY}"  Background="White"/>
+        </Canvas>-->
     </Grid>
 </UserControl>

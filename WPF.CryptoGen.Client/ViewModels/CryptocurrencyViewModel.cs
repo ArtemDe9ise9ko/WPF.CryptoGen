@@ -5,8 +5,8 @@ namespace WPF.CryptoGen.Client.ViewModels
 {
     public class CryptocurrencyViewModel : ViewModelBase
     {
-        public PlotModel PlotModel { get; set; }
-        public PlotController PlotController { get; set; }
+        public PlotModel PlotModel { get; }
+        public PlotController PlotController { get;}
 
         private readonly IPlotService _plotService;
 

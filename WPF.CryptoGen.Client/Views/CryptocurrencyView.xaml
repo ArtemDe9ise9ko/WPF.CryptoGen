@@ -16,7 +16,7 @@
         <TextBlock FontSize="28" Text="Cryptocurrency" Margin="30" Foreground="{DynamicResource HeaderTextColor}"/>
 
         <oxy:PlotView 
-            Margin="50"
+            Margin="10"
             Grid.Row="1"
             Model="{Binding PlotModel}"
             Background="Transparent"

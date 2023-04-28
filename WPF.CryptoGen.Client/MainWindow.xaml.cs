@@ -1,6 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
 
 namespace WPF.CryptoGen.Client
 {
@@ -9,7 +7,6 @@ namespace WPF.CryptoGen.Client
         public MainWindow()
         {
             InitializeComponent();
-            //DataContext = new MainViewModel();
         }
     }
 }

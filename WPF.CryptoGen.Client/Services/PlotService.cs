@@ -17,16 +17,14 @@ namespace WPF.CryptoGen.Client.Services
         private readonly Color _textColor = (Color)new ColorConverter().ConvertFromString(Application.Current.FindResource("TextColor").ToString());
         private readonly Color _lineSeriesColor = (Color)new ColorConverter().ConvertFromString(Application.Current.FindResource("LineSeriesColor").ToString());
         private readonly Color _areaSeriesColor = (Color)new ColorConverter().ConvertFromString(Application.Current.FindResource("AreaSeriesColor").ToString());
-
         public PlotController GetPlotController()
         {
             return Get();
         }
         public PlotModel GetPlotModel()
         {
-            return GetPlot();
+            return CreatePlot();
         }
-
         private static PlotController Get()
         {
             PlotController plotController = new PlotController();
@@ -38,11 +36,12 @@ namespace WPF.CryptoGen.Client.Services
 
             return plotController;
         }
-        private PlotModel GetPlot()
+        private PlotModel CreatePlot()
         {
             LinearAxis axisLeft = CreateAxisLeft();
             LinearAxis axisBottomSeries = CreateAxisBottom();
             AreaSeries areaSeries = CreateArea();
+            AddAreaPoints(ref areaSeries);
             DataPoint lastDataPoint = areaSeries.Points.Last();
             ScatterSeries scatterSeries = CreateScatterSeries();
             scatterSeries.Points.Add(new ScatterPoint(lastDataPoint.X, lastDataPoint.Y));
@@ -64,7 +63,18 @@ namespace WPF.CryptoGen.Client.Services
 
             return plotModel;
         }
+        private void AddAreaPoints(ref AreaSeries areaSeries)
+        {
+            var random = new Random(1);
+            var dailyOutput = 0;
 
+            for (int i = 0; i <= 80; i++)
+            {
+                areaSeries.Points.Add(new DataPoint(i, dailyOutput));
+
+                dailyOutput = Math.Max(0, dailyOutput + random.Next(-180, 223));
+            }
+        }
         private LinearAxis CreateAxisLeft()
         {
             return new LinearAxis
@@ -75,7 +85,6 @@ namespace WPF.CryptoGen.Client.Services
                 TicklineColor = OxyColor.FromRgb(_textColor.R, _textColor.G, _textColor.B)
             };
         }
-
         private LinearAxis CreateAxisBottom()
         {
             return new LinearAxis
@@ -86,29 +95,15 @@ namespace WPF.CryptoGen.Client.Services
                 TicklineColor = OxyColor.FromRgb(_textColor.R, _textColor.G, _textColor.B)
             };
         }
-
         private AreaSeries CreateArea()
         {
-            var areaSeries = new AreaSeries()
+            return new AreaSeries()
             {
                 Color = OxyColor.FromRgb(_lineSeriesColor.R, _lineSeriesColor.G, _lineSeriesColor.B),
                 Fill = OxyColor.FromRgb(_areaSeriesColor.R, _areaSeriesColor.G, _areaSeriesColor.B),
                 Color2 = OxyColors.Transparent
             };
-
-            var random = new Random(1);
-            var dailyOutput = 0;
-
-            for (int i = 0; i <= 80; i++)
-            {
-                areaSeries.Points.Add(new DataPoint(i, dailyOutput));
-
-                dailyOutput = Math.Max(0, dailyOutput + random.Next(-180, 223));
-            }
-
-            return areaSeries;
         }
-
         private LineAnnotation CreateHorizontalAnnotation(DataPoint lastDataPoint)
         {
             return new LineAnnotation
@@ -123,7 +118,6 @@ namespace WPF.CryptoGen.Client.Services
                 TextVerticalAlignment = VerticalAlignment.Bottom,
             };
         }
-
         private ScatterSeries CreateScatterSeries()
         {
             return new ScatterSeries
@@ -135,7 +129,6 @@ namespace WPF.CryptoGen.Client.Services
                 DataFieldY = "Y"
             };
         }
-
         private TextAnnotation CreateAnnotation(LinearAxis axisLeft, DataPoint lastDataPoint)
         {
             return new TextAnnotation

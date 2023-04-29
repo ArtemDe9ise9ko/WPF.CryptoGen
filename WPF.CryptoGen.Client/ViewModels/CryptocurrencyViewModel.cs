@@ -1,5 +1,6 @@
 ﻿using OxyPlot;
 using WPF.CryptoGen.Client.Interfaces;
+using WPF.CryptoGen.Client.Stores;
 
 namespace WPF.CryptoGen.Client.ViewModels
 {
@@ -7,6 +8,9 @@ namespace WPF.CryptoGen.Client.ViewModels
     {
         public PlotModel PlotModel { get; }
         public PlotController PlotController { get;}
+        public string ApiName { get;}
+
+        private readonly string _currentUrl; 
 
         private readonly IPlotService _plotService;
 
@@ -14,6 +18,8 @@ namespace WPF.CryptoGen.Client.ViewModels
         {
             _plotService = plotService;
 
+            _currentUrl = CryptoUrlInstance.GetInstance().GetTopCryptoApi();
+            ApiName= CryptoUrlInstance.GetInstance().GetTopCryptoName();
 
             PlotController = _plotService.GetPlotController();
             PlotModel = _plotService.GetPlotModel();

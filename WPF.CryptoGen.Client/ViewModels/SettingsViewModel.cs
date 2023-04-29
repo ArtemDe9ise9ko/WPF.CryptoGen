@@ -9,10 +9,12 @@ namespace WPF.CryptoGen.Client.ViewModels
 {
     public class SettingsViewModel : ViewModelBase
     {
+        public ICommand ApiChangeCommand { get; }
         public ICommand ThemeChangeCommand { get; }
         public ICommand  LanguageChangeCommand { get;}
         public SettingsViewModel()
         {
+            ApiChangeCommand = new ChangeApiCommand();
             ThemeChangeCommand = new ChangeThemesCommand();
             LanguageChangeCommand = new ChangeLanguageCommand();
         }

@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:lex="http://wpflocalizeextension.codeplex.com"
              xmlns:local="clr-namespace:WPF.CryptoGen.Client.Views"
              xmlns:oxy="http://oxyplot.org/wpf"
              mc:Ignorable="d" 
@@ -13,8 +14,11 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock FontSize="28" Text="Cryptocurrency" Margin="30" Foreground="{DynamicResource HeaderTextColor}"/>
-
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBlock FontSize="24" Text="{lex:Loc Top10}" Margin="30,30,0,30" Foreground="{DynamicResource HeaderTextColor}"/>
+            <TextBlock FontSize="20" Text="{lex:Loc Api used}" Margin="350,35,0,30" Foreground="{DynamicResource HeaderTextColor}"/>
+            <TextBlock FontSize="20" Text="{Binding ApiName}" Margin="5,35,0,30" Foreground="{DynamicResource HeaderTextColor}"/>
+        </StackPanel>
         <oxy:PlotView 
             Margin="10"
             Grid.Row="1"

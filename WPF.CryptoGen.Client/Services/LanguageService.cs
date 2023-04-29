@@ -3,7 +3,7 @@ using WPF.CryptoGen.Client.Interfaces;
 
 namespace WPF.CryptoGen.Client.Services
 {
-    public class LanguageDataService : ILanguageDataService
+    public class LanguageService : ILanguageService
     {
         public void SetLanguage(string lang) {
 			WPFLocalizeExtension.Engine.LocalizeDictionary.Instance.Culture =

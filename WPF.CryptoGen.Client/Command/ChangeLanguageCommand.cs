@@ -7,7 +7,7 @@ namespace WPF.CryptoGen.Client.Command
     {
         public override void Execute(object parameter)
         {
-            ILanguageDataService themesDataService = new LanguageDataService();
+            ILanguageService themesDataService = new LanguageService();
 
             themesDataService.SetLanguage((string)parameter);
         }

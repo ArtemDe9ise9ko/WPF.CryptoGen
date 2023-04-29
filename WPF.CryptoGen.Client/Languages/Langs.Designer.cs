@@ -61,6 +61,15 @@ namespace WPF.CryptoGen.Client.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to API used:.
+        /// </summary>
+        public static string Api_used {
+            get {
+                return ResourceManager.GetString("Api used", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cryptocurrencies.
         /// </summary>
         public static string Cryptocurrencies {
@@ -75,6 +84,15 @@ namespace WPF.CryptoGen.Client.Languages {
         public static string Exchanges {
             get {
                 return ResourceManager.GetString("Exchanges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Top 10 Cryptocurrencies.
+        /// </summary>
+        public static string Top10 {
+            get {
+                return ResourceManager.GetString("Top10", resourceCulture);
             }
         }
     }

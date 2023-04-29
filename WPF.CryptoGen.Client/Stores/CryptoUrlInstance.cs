@@ -7,7 +7,7 @@ namespace WPF.CryptoGen.Client.Stores
     {
         private static CryptoUrlInstance _instance;
 
-        private const string COIN_CAP = "https://api.coincap.io/v2/assets?limit=10";
+        private const string COIN_CAP = "https://api.coincap.io/v2/assets?limit=11";
         private const string COIN_GECKO = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false";
         private const string CRYPTING_UP = "https://www.cryptingup.com/apidoc/currencies?limit=10";
 

@@ -71,6 +71,33 @@
         <Setter Property="FontFamily" Value="Gotham Rounded Book"/>
     </Style>
 
+    <!--Image-->
+    <Style TargetType="Image">
+
+    </Style>
+    <!--CurrencyImage-->
+    <Style BasedOn="{StaticResource {x:Type Image}}" TargetType="Image" x:Key="CurrencyImage">
+        <Setter Property="Width" Value="30" />
+        <Setter Property="Height" Value="30" />
+    </Style>
+    <!--Brushes-->
+    <SolidColorBrush x:Key="BrushTextColor" Color="Gray"/>
+    <SolidColorBrush x:Key="BrushNonActiveTextColor" Color="Black" />
+    <!--Currency-->
+    <Style BasedOn="{StaticResource {x:Type TextBlock}}" TargetType="TextBlock" x:Key="Currency">
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+    <!--CurrencySymbol-->
+    <Style BasedOn="{StaticResource Currency}" TargetType="TextBlock" x:Key="CurrencySymbol">
+        <Setter Property="Foreground" Value="{DynamicResource BrushTextColor}"/>
+        <Setter Property="FontSize" Value="24" />
+    </Style>
+    <!--CurrencyName-->
+    <Style BasedOn="{StaticResource Currency}" TargetType="TextBlock" x:Key="CurrencyName">
+        <Setter Property="Foreground" Value="{DynamicResource BrushNonActiveTextColor}" />
+        <Setter Property="FontSize" Value="18" />
+    </Style>
+    
     <!--Tooltips-->
 
 

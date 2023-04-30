@@ -1,8 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <SolidColorBrush x:Key="NavBackgroundColor" Color="#121212"/>
-    <SolidColorBrush x:Key="ContentBackgroundColor" Color="#383838"/>
+    <SolidColorBrush x:Key="NavBackgroundColor" Color="#1e1f1e"/>
+    <SolidColorBrush x:Key="ContentBackgroundColor" Color="#444544"/>
 
     <SolidColorBrush x:Key="IsMouseOverTag" Color="#bbffb3"/>
     <SolidColorBrush x:Key="IsCheckedTag" Color="#70fc60"/>
@@ -11,8 +11,15 @@
     <SolidColorBrush x:Key="NavTextColor" Color="#fff"/>
     <SolidColorBrush x:Key="HeaderTextColor" Color="#fff"/>
 
+    <SolidColorBrush x:Key="IsMouseOverCurrencyBottom" Color="#252b24"/>
+    <SolidColorBrush x:Key="LineNavBottom" Color="#bbffb3"/>
     <SolidColorBrush x:Key="LineSeriesColor" Color="#7f6"/>
+    <SolidColorBrush x:Key="LineTableColor" Color="#fff"/>
+    
     <SolidColorBrush x:Key="AreaSeriesColor" Color="#3c423c"/>
+
+    <SolidColorBrush x:Key="ListBoxIsMouseOver" Color="#3d423c"/>
+    <SolidColorBrush x:Key="ListBoxIsSelected" Color="#384236"/>
     <!--<SolidColorBrush x:Key="LineSeriesColor" Color="#42fa2d"/>-->
     <!--<SolidColorBrush x:Key="AxisTextColor" Color="#fff"/>-->
 </ResourceDictionary>

@@ -28,7 +28,7 @@
             Margin="8"
             Orientation="Horizontal">
 
-            <fa:IconImage Icon="Ello" Foreground="{DynamicResource NavTextColor}"/>
+            <fa:IconImage Icon="FaceGrin" Foreground="{DynamicResource NavTextColor}"/>
         </StackPanel>
         
         <TextBlock

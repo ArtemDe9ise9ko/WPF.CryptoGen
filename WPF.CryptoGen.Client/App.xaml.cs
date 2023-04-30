@@ -25,6 +25,7 @@ namespace WPF.CryptoGen.Client
             services.AddTransient<ExchangesViewModel>();
             services.AddTransient<SettingsViewModel>();
 
+            services.AddTransient<IHttpService, HttpService>();
             services.AddTransient<IPlotService, PlotService>();
             services.AddTransient<IThemesDataService, ThemesDataService>();
             services.AddTransient(CreateNavigationBarViewModel);

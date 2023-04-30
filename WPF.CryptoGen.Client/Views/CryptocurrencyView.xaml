@@ -7,46 +7,57 @@
              xmlns:local="clr-namespace:WPF.CryptoGen.Client.Views"
              xmlns:oxy="http://oxyplot.org/wpf"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="1000">
+             d:DesignHeight="650" d:DesignWidth="1000">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" MinHeight="40" />
             <RowDefinition Height="auto" MinHeight="40"/>
-            <RowDefinition/>
+            <RowDefinition MaxHeight="450"/>
+            <RowDefinition Height="auto" MinHeight="40"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Orientation="Horizontal" Grid.RowSpan="2">
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="500"/>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="760"/>
+                    <ColumnDefinition Width="160"/>
+                    <ColumnDefinition Width="80"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock FontSize="24" Text="{lex:Loc Top10}" Margin="30,0" Foreground="{DynamicResource HeaderTextColor}" Grid.Column="0"/>
-                <TextBlock FontSize="20" Text="{lex:Loc Api used}" Margin="0,5,0,0" Foreground="{DynamicResource HeaderTextColor}" Grid.Column="1"/>
-                <TextBlock FontSize="20" Text="{Binding ApiName}" Margin="5,5,0,0" Foreground="{DynamicResource HeaderTextColor}" Grid.Column="2"/>
+                <TextBlock FontSize="24" Text="{lex:Loc Top10}" Margin="20,20" Foreground="{DynamicResource HeaderTextColor}" Grid.Column="0"/>
             </Grid>
         </StackPanel>
-        
-        <!--<StackPanel Grid.Row="0" Orientation="Horizontal" Grid.RowSpan="2">
-            <TextBlock FontSize="24" Text="{lex:Loc Top10}" Margin="30,0,0,30" Foreground="{DynamicResource HeaderTextColor}"/>
-            <TextBlock FontSize="20" Text="{lex:Loc Api used}" Margin="350,5,0,30" Foreground="{DynamicResource HeaderTextColor}"/>
-            <TextBlock FontSize="20" Text="{Binding ApiName}" Margin="5,5,0,30" Foreground="{DynamicResource HeaderTextColor}"/>
-        </StackPanel>-->
 
-        <!--<StackPanel Grid.Row="1" Orientation="Horizontal" Grid.RowSpan="2">
-            <TextBlock FontSize="24" Text="{lex:Loc Top10}" Margin="30,0,0,30" Foreground="{DynamicResource HeaderTextColor}"/>
-            <TextBlock FontSize="20" Text="{lex:Loc Api used}" Margin="350,5,0,30" Foreground="{DynamicResource HeaderTextColor}"/>
-            <TextBlock FontSize="20" Text="{Binding ApiName}" Margin="5,5,0,30" Foreground="{DynamicResource HeaderTextColor}"/>
-        </StackPanel>-->
+        <Border BorderThickness="0,2,0,1" BorderBrush="{DynamicResource LineTableColor}" Grid.Row="1">
+            <StackPanel  Orientation="Horizontal">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="190"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="75"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="180"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock FontSize="16" Text="{lex:Loc Name}" Margin="60,10,0,10" Foreground="{DynamicResource HeaderTextColor}" Grid.Column="0"/>
+                    <TextBlock FontSize="16" Text="{lex:Loc Price}" Margin="0,10" Foreground="{DynamicResource HeaderTextColor}" Grid.Column="1" HorizontalAlignment="Right"/>
+                    <TextBlock FontSize="16" Text="24h %" Margin="0,10" Foreground="{DynamicResource HeaderTextColor}" Grid.Column="2" HorizontalAlignment="Right"/>
+                    <TextBlock FontSize="16" Text="{lex:Loc MarketCap}" Margin="0,10" Foreground="{DynamicResource HeaderTextColor}" Grid.Column="3" HorizontalAlignment="Right"/>
+                    <TextBlock FontSize="16" Text="{lex:Loc Volume(24h)}" Margin="0,10" Foreground="{DynamicResource HeaderTextColor}" Grid.Column="4" HorizontalAlignment="Right"/>
+                    <TextBlock FontSize="16" Text="{lex:Loc CirculatingSupply}" Margin="0,10" Foreground="{DynamicResource HeaderTextColor}" Grid.Column="5" HorizontalAlignment="Right"/>
+                </Grid>
+            </StackPanel>
+        </Border>
         
         <ListBox 
             Grid.Row="2" 
             ItemsSource="{Binding CoinListMain}" 
             Background="{DynamicResource ContentBackgroundColor}" 
             BorderThickness="0"
-            ScrollViewer.VerticalScrollBarVisibility="Disabled">
-            
+            ScrollViewer.VerticalScrollBarVisibility="Disabled"
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+            VerticalAlignment="Top"
+            PreviewMouseWheel="ListBox_PreviewMouseWheel"
+            ItemContainerStyle="{DynamicResource CustomMetroListBoxItem}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -59,25 +70,68 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="40"/>
                         </Grid.RowDefinitions>
-                        <Grid  Margin="20,0,20,0">
+                        <Grid Margin="10,0,15,0">
                             <Image Source="{Binding Path}" Style="{DynamicResource CurrencyImage}" />
                         </Grid>
                         <Grid Grid.Column="1">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="80"/>
-                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="130"/>
+                                <ColumnDefinition Width="95"/>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="180"/>
+                                <ColumnDefinition Width="200"/>
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Column="0" >
-                                <TextBlock Text="{Binding Name}" Style="{DynamicResource CurrencyName}" />
+                                <TextBlock Text="{Binding Symbol}" Style="{DynamicResource CurrencySymbol}"/>
                             </Grid>
                             <Grid Grid.Column="1">
-                                <TextBlock Text="{Binding Symbol}" Margin="10,0" Style="{DynamicResource CurrencySymbol}"/>
+                                <TextBlock Text="{Binding Name}" Style="{DynamicResource CurrencyName}"/>
+                            </Grid>
+                            <Grid Grid.Column="2">
+                                <TextBlock Text="{Binding Price}" Style="{DynamicResource CurrencyName}" HorizontalAlignment="Right"/>
+                            </Grid>
+                            <Grid Grid.Column="3">
+                                <TextBlock Text="{Binding Change}" Style="{DynamicResource CurrencyName}" HorizontalAlignment="Right"/>
+                            </Grid>
+                            <Grid Grid.Column="4">
+                                <TextBlock Text="{Binding MarketCap}" Style="{DynamicResource CurrencyName}" HorizontalAlignment="Right"/>
+                            </Grid>
+                            <Grid Grid.Column="5">
+                                <TextBlock Text="{Binding Volume}" Style="{DynamicResource CurrencyName}" HorizontalAlignment="Right"/>
+                            </Grid>
+                            <Grid Grid.Column="6">
+                                <TextBlock Text="{Binding Supply}" Style="{DynamicResource CurrencyName}" HorizontalAlignment="Right"/>
+                            </Grid>
+                            <Grid Grid.Column="7">
+                                <Button Content="{Binding Name}" Style="{DynamicResource CurrencyButton}"  Width="110" Height="25" Margin="10,0,0,0" HorizontalAlignment="Left"/>
                             </Grid>
                         </Grid>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+
+        <Border Grid.Row="3" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource LineTableColor}">
+            <StackPanel Orientation="Horizontal">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="280"/>
+                        <ColumnDefinition Width="80"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{lex:Loc TimerUpdate}" Margin="0,25" FontSize="14" Grid.Column="0" Foreground="Gray" HorizontalAlignment="Right"/>
+                    <TextBlock Text="{Binding TimerText}" Margin="5,25" FontSize="14" Grid.Column="1" Foreground="Gray" HorizontalAlignment="Left"/>
+                    <TextBlock Text="{lex:Loc Seconds}" Margin="0,25" FontSize="14" Grid.Column="2" Foreground="Gray" HorizontalAlignment="Left"/>
+                    <TextBlock FontSize="14" Text="{lex:Loc Api used}" Margin="0,25" Foreground="Gray" Grid.Column="3" HorizontalAlignment="Right"/>
+                    <TextBlock FontSize="14" Text="{Binding ApiName}" Margin="5,25,0,25" Foreground="Gray" Grid.Column="4"/>
+                </Grid>
+            </StackPanel>
+        </Border>
 
         <!--<oxy:PlotView 
             Margin="10"

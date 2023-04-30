@@ -13,7 +13,8 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <local:NavigationBar Grid.Row="0" BorderThickness="0, 0, 0, 1" BorderBrush="{DynamicResource NavTextColor}" DataContext="{Binding NavigationBarViewModel}"/>
+        <!--todo Border next may be a progress bar-->
+        <local:NavigationBar Grid.Row="0" BorderThickness="0, 0, 0, 5" BorderBrush="{DynamicResource LineNavBottom}" DataContext="{Binding NavigationBarViewModel}"/>
         
         <ContentControl
             Grid.Row="1"

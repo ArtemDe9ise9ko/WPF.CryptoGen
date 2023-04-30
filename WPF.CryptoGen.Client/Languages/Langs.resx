@@ -120,13 +120,34 @@
   <data name="Api used" xml:space="preserve">
     <value>API used:</value>
   </data>
+  <data name="CirculatingSupply" xml:space="preserve">
+    <value>Circulating Supply</value>
+  </data>
   <data name="Cryptocurrencies" xml:space="preserve">
     <value>Cryptocurrencies</value>
   </data>
   <data name="Exchanges" xml:space="preserve">
     <value>Exchanges</value>
   </data>
+  <data name="MarketCap" xml:space="preserve">
+    <value>Market Cap</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Price(USD)</value>
+  </data>
+  <data name="Seconds" xml:space="preserve">
+    <value>seconds</value>
+  </data>
+  <data name="TimerUpdate" xml:space="preserve">
+    <value>The data will be updated via</value>
+  </data>
   <data name="Top10" xml:space="preserve">
     <value>Top 10 Cryptocurrencies</value>
+  </data>
+  <data name="Volume(24h)" xml:space="preserve">
+    <value>Volume(24h)</value>
   </data>
 </root>

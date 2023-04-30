@@ -120,13 +120,34 @@
   <data name="Api used" xml:space="preserve">
     <value>Zastosowane API:</value>
   </data>
+  <data name="CirculatingSupply" xml:space="preserve">
+    <value>Liczba monet</value>
+  </data>
   <data name="Cryptocurrencies" xml:space="preserve">
     <value>Kryptowaluty</value>
   </data>
   <data name="Exchanges" xml:space="preserve">
     <value>Wymiany</value>
   </data>
+  <data name="MarketCap" xml:space="preserve">
+    <value>Kapitalizacja</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Cena(USD)</value>
+  </data>
+  <data name="Seconds" xml:space="preserve">
+    <value>drugi</value>
+  </data>
+  <data name="TimerUpdate" xml:space="preserve">
+    <value>Dane będą aktualizowane za pośrednictwem</value>
+  </data>
   <data name="Top10" xml:space="preserve">
-    <value>10 najlepszych kryptowalut</value>
+    <value>10 Najlepszych kryptowalut</value>
+  </data>
+  <data name="Volume(24h)" xml:space="preserve">
+    <value>Głośność(24h)</value>
   </data>
 </root>

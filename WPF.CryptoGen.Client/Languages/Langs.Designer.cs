@@ -70,6 +70,15 @@ namespace WPF.CryptoGen.Client.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Circulating Supply.
+        /// </summary>
+        public static string CirculatingSupply {
+            get {
+                return ResourceManager.GetString("CirculatingSupply", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cryptocurrencies.
         /// </summary>
         public static string Cryptocurrencies {
@@ -88,11 +97,65 @@ namespace WPF.CryptoGen.Client.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Market Cap.
+        /// </summary>
+        public static string MarketCap {
+            get {
+                return ResourceManager.GetString("MarketCap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price(USD).
+        /// </summary>
+        public static string Price {
+            get {
+                return ResourceManager.GetString("Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to seconds.
+        /// </summary>
+        public static string Seconds {
+            get {
+                return ResourceManager.GetString("Seconds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The data will be updated via.
+        /// </summary>
+        public static string TimerUpdate {
+            get {
+                return ResourceManager.GetString("TimerUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Top 10 Cryptocurrencies.
         /// </summary>
         public static string Top10 {
             get {
                 return ResourceManager.GetString("Top10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Volume(24h).
+        /// </summary>
+        public static string Volume_24h_ {
+            get {
+                return ResourceManager.GetString("Volume(24h)", resourceCulture);
             }
         }
     }

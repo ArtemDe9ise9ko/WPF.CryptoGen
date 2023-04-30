@@ -1,6 +1,6 @@
 ﻿
 using System.Windows.Controls;
-
+using System.Windows.Input;
 
 namespace WPF.CryptoGen.Client.Views
 {
@@ -12,6 +12,11 @@ namespace WPF.CryptoGen.Client.Views
         public CryptocurrencyView()
         {
             InitializeComponent();
+        }
+
+        private void ListBox_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

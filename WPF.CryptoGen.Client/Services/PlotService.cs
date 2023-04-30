@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows;
 using WPF.CryptoGen.Client.Interfaces;
+using WPF.CryptoGen.Client.Model;
 using HorizontalAlignment = OxyPlot.HorizontalAlignment;
 using VerticalAlignment = OxyPlot.VerticalAlignment;
 
@@ -17,8 +18,6 @@ namespace WPF.CryptoGen.Client.Services
         private readonly Color _textColor = (Color)new ColorConverter().ConvertFromString(Application.Current.FindResource("TextColor").ToString());
         private readonly Color _lineSeriesColor = (Color)new ColorConverter().ConvertFromString(Application.Current.FindResource("LineSeriesColor").ToString());
         private readonly Color _areaSeriesColor = (Color)new ColorConverter().ConvertFromString(Application.Current.FindResource("AreaSeriesColor").ToString());
-        private const double INTEND_X = 0.5;
-        private const double INTEND_Y = 5;
         public PlotController GetPlotController()
         {
             return Get();
@@ -54,8 +53,8 @@ namespace WPF.CryptoGen.Client.Services
 
             plotModel.Axes.Add(axisLeft);
             plotModel.Axes.Add(axisBottomSeries);
-            plotModel.Axes[0].Maximum = areaSeries.Points.Max(x => x.Y) + INTEND_Y;
-            plotModel.Axes[1].Maximum = lastDataPoint.X + INTEND_X;
+            plotModel.Axes[0].Maximum = areaSeries.Points.Max(x => x.Y) + Constants.INTEND_Y;
+            plotModel.Axes[1].Maximum = lastDataPoint.X + Constants.INTEND_X;
             plotModel.PlotAreaBorderThickness = new OxyThickness(1, 0, 0, 1);
             plotModel.PlotAreaBorderColor = OxyColor.FromRgb(_textColor.R, _textColor.G, _textColor.B);
             plotModel.Annotations.Add(horizontalLineAnnotation);
@@ -138,7 +137,7 @@ namespace WPF.CryptoGen.Client.Services
                 Text = string.Format("{0:F2}", lastDataPoint.Y),
                 TextHorizontalAlignment = HorizontalAlignment.Left,
                 TextVerticalAlignment = VerticalAlignment.Bottom,
-                TextPosition = new DataPoint(axisLeft.ActualMinimum + INTEND_X, lastDataPoint.Y),
+                TextPosition = new DataPoint(axisLeft.ActualMinimum + Constants.INTEND_X, lastDataPoint.Y),
                 Background = OxyColor.FromRgb(_areaSeriesColor.R, _areaSeriesColor.G, _areaSeriesColor.B),
                 TextColor = OxyColor.FromRgb(_textColor.R, _textColor.G, _textColor.B),
                 StrokeThickness = 0.3

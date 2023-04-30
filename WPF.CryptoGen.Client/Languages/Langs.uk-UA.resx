@@ -120,13 +120,34 @@
   <data name="Api used" xml:space="preserve">
     <value>Використаний API:</value>
   </data>
+  <data name="CirculatingSupply" xml:space="preserve">
+    <value>Кількість монет</value>
+  </data>
   <data name="Cryptocurrencies" xml:space="preserve">
     <value>Криптовалюти</value>
   </data>
   <data name="Exchanges" xml:space="preserve">
     <value>Обміни</value>
   </data>
+  <data name="MarketCap" xml:space="preserve">
+    <value>Капіталізація</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Ім'я</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Ціна(USD)</value>
+  </data>
+  <data name="Seconds" xml:space="preserve">
+    <value>секунд</value>
+  </data>
+  <data name="TimerUpdate" xml:space="preserve">
+    <value>Дані будуть оновлені через</value>
+  </data>
   <data name="Top10" xml:space="preserve">
-    <value>Топ 10 криптовалют</value>
+    <value>Топ 10 Криптовалют</value>
+  </data>
+  <data name="Volume(24h)" xml:space="preserve">
+    <value>Обсяг(24h)</value>
   </data>
 </root>

@@ -1,17 +1,14 @@
 ﻿using OxyPlot;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
 using WPF.CryptoGen.Client.Interfaces;
 using WPF.CryptoGen.Client.Stores;
-using Newtonsoft.Json;
 using WPF.CryptoGen.Client.Model;
-using System.Collections.Generic;
 using WPF.CryptoGen.Client.Services;
-using System.Windows.Controls;
 using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace WPF.CryptoGen.Client.ViewModels
 {
@@ -19,28 +16,83 @@ namespace WPF.CryptoGen.Client.ViewModels
     {
         public PlotModel PlotModel { get; }
         public PlotController PlotController { get;}
-        public string ApiName { get;}
         public ObservableCollection<MainModel> CoinListMain { get; set;}
+        public string ApiName { get;}
+
+        private string _timerText;
+        public string TimerText
+        {
+            get { return _timerText; }
+            set
+            {
+                _timerText = value;
+                OnPropertyChanged("TimerText");
+            }
+        }
 
         private readonly IPlotService _plotService;
-
+        private readonly IHttpService _httpService;
         private static CancellationTokenSource _tokenSource = new();
-        public CryptocurrencyViewModel(IPlotService plotService)
+        double counter = Constants.INTERVAL_REQUEST;
+
+        public CryptocurrencyViewModel(IPlotService plotService, IHttpService httpService)
         {
             _plotService = plotService;
+            _httpService = httpService;
 
-            ApiName= CryptoUrlInstance.GetInstance().GetTopCryptoName();
+            var _timer = new DispatcherTimer();
+            _timer.Interval = TimeSpan.FromSeconds(1);
+            _timer.Tick += Timer_Tick;
+            _timer.Start();
+
+            FillCoinList();
+
+            ApiName = CryptoUrlInstance.GetInstance().GetTopCryptoName();
+
+            PlotController = _plotService.GetPlotController();
+            PlotModel = _plotService.GetPlotModel();
+        }
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            counter--;
+
+            TimerText = counter.ToString();
+
+            if(counter == 0) counter = Constants.INTERVAL_REQUEST;
+        }
+
+        private void FillCoinList()
+        {
+            CoinListMain = new ObservableCollection<MainModel>();
             string currentUrl = CryptoUrlInstance.GetInstance().GetTopCryptoApi();
 
-            CoinListMain = new ObservableCollection<MainModel>();
-
+            switch (currentUrl)
+            {
+                case Constants.COIN_GECKO:
+                    CoinGeckoFiller(currentUrl);
+                    break;
+                case Constants.COIN_CAP:
+                    CoinCapFiller(currentUrl);
+                    break;
+                case Constants.CRYPTING_UP:
+                    CryptingUpFiller(currentUrl);
+                    break;
+            }
+        }
+        private void CoinGeckoFiller(string currentUrl)
+        {
+        }
+        private void CoinCapFiller(string currentUrl)
+        {
             try
             {
-                Task.Run(async () => {
-                    await SendAsync<AssetsRoot>(currentUrl, TimeSpan.FromSeconds(5), result =>
+                Task.Run(async () =>
+                {
+                    await _httpService.SendAsync<AssetsRoot>(currentUrl, TimeSpan.FromSeconds(Constants.INTERVAL_REQUEST), result =>
                     {
-                        var models = ConvertModel(result);
-                        Application.Current.Dispatcher.Invoke(() => {
+                        var models = ConvertModelService.ConvertModel(result);
+                        Application.Current.Dispatcher.Invoke(() =>
+                        {
                             CoinListMain.Clear();
                             foreach (var model in models)
                             {
@@ -48,16 +100,6 @@ namespace WPF.CryptoGen.Client.ViewModels
                             }
                         });
 
-                        //var models = ConvertModel(result);
-                        //if (CoinListMain.Count != 0)
-                        //{
-                        //    CoinListMain.Clear();
-                        //}
-
-                        //foreach (var model in models)
-                        //{
-                        //    Application.Current.Dispatcher.Invoke(() => CoinListMain.Add(model));
-                        //}
                     }, _tokenSource.Token);
                 });
             }
@@ -65,48 +107,9 @@ namespace WPF.CryptoGen.Client.ViewModels
             {
                 //Exception
             }
-
-            PlotController = _plotService.GetPlotController();
-            PlotModel = _plotService.GetPlotModel();
         }
-        private static List<MainModel> ConvertModel(AssetsRoot model)
+        private void CryptingUpFiller(string currentUrl)
         {
-            List<MainModel> views = new List<MainModel>();
-            foreach (var item in model.Data)
-            {
-                views.Add(new MainModel
-                {
-                    Path = $"https://assets.coincap.io/assets/icons/{item.Symbol.ToLower()}@2x.png",
-                    Symbol = item.Symbol,
-                    Name = item.Name,
-                    Price = ConvertService.ConvertPrice(item.PriceUsd),
-                    Change = ConvertService.ConvertChange(item.ChangePercent24Hr)
-                });
-            }
-            return views;
-        }
-        private async Task<T> SendAsync<T>(string url, TimeSpan interval, Action<T> callback, CancellationToken cancellationToken)
-        {
-            while (!cancellationToken.IsCancellationRequested)
-            {
-                using (var client = new HttpClient())
-                {
-                    try
-                    {
-                        var responce = await client.GetAsync(url);
-                        responce.EnsureSuccessStatusCode();
-                        var content = await responce.Content.ReadAsStringAsync();
-                        var result = JsonConvert.DeserializeObject<T>(content);
-                        callback(result);
-                    }
-                    catch (Exception)
-                    {
-                        // handle exception//
-                    }
-                }
-                await Task.Delay(interval);
-            }
-            return default(T);
         }
     }
 }

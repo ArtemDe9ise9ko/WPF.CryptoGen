@@ -13,5 +13,6 @@
         </Grid.RowDefinitions>
 
         <TextBlock FontSize="28" Text="Exchange" Margin="30" Foreground="{DynamicResource HeaderTextColor}"/>
+        <!--todo exchange view-->
     </Grid>
 </UserControl>

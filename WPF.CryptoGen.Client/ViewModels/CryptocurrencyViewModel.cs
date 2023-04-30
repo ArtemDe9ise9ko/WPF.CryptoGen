@@ -18,7 +18,6 @@ namespace WPF.CryptoGen.Client.ViewModels
         public PlotController PlotController { get;}
         public ObservableCollection<MainModel> CoinListMain { get; set;}
         public string ApiName { get;}
-
         private string _timerText;
         public string TimerText
         {
@@ -81,6 +80,7 @@ namespace WPF.CryptoGen.Client.ViewModels
         }
         private void CoinGeckoFiller(string currentUrl)
         {
+            //todo Api
         }
         private void CoinCapFiller(string currentUrl)
         {
@@ -110,6 +110,7 @@ namespace WPF.CryptoGen.Client.ViewModels
         }
         private void CryptingUpFiller(string currentUrl)
         {
+            //todo Api
         }
     }
 }

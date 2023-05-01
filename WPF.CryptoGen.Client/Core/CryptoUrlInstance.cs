@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using WPF.CryptoGen.Client.Model;
 
-namespace WPF.CryptoGen.Client.Stores
+namespace WPF.CryptoGen.Client.Core
 {
     public class CryptoUrlInstance : CryptoUrl
     {

@@ -1,9 +1,8 @@
 ﻿using System.ComponentModel;
-using System;
 
-namespace WPF.CryptoGen.Client.ViewModels
+namespace WPF.CryptoGen.Client.Core
 {
-    public class ViewModelBase : INotifyPropertyChanged, IDisposable
+    public class ObservableObject : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -11,7 +10,6 @@ namespace WPF.CryptoGen.Client.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
         public virtual void Dispose() { }
     }
 }

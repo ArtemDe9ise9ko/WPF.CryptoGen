@@ -7,28 +7,34 @@
         xmlns:viewmodels="clr-namespace:WPF.CryptoGen.Client.ViewModels"
         xmlns:components="clr-namespace:WPF.CryptoGen.Client.Components"
         mc:Ignorable="d"
-        Title="MainWindow" Height="750" Width="1050"
+        Title="MainWindow" Height="720" Width="1050"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         AllowsTransparency="True"
         ResizeMode="CanResizeWithGrip" 
-        MouseLeftButtonDown="DragLeftButton">
-        <Grid Background="{DynamicResource ContentBackgroundColor}">
-            <Grid.Resources>
-                <DataTemplate DataType="{x:Type viewmodels:CryptocurrencyViewModel}">
+        MouseLeftButtonDown="DragLeftButton"
+        Background="{DynamicResource ContentBackgroundColor}">
+    <Grid>
+        <Grid.Resources>
+        <DataTemplate DataType="{x:Type viewmodels:CryptocurrencyViewModel}">
                     <views:CryptocurrencyView/>
                 </DataTemplate>
-                <DataTemplate DataType="{x:Type viewmodels:ExchangesViewModel}">
-                    <views:ExchangesView/>
+                <DataTemplate DataType="{x:Type viewmodels:ExchangeViewModel}">
+                    <views:ExchangeView/>
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type viewmodels:SettingsViewModel}">
                     <views:SettingsView/>
                 </DataTemplate>
-                <DataTemplate DataType="{x:Type viewmodels:LayoutViewModel}">
-                    <components:Layout />
-                </DataTemplate>
-            </Grid.Resources>
-
-            <ContentControl Content="{Binding CurrentViewModel}" />
-        </Grid>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border BorderThickness="0 0 0 5" BorderBrush="{DynamicResource LineNavBottom}">
+            <Grid Grid.Row="0">
+                <components:NavigationBar />
+            </Grid>
+        </Border>
+        <ContentControl Grid.Row="1" Content="{Binding Navigation.CurrentView}" Margin="20,0.1"/>
+    </Grid>
 </Window>

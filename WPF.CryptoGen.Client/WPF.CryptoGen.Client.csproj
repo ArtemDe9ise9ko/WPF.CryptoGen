@@ -62,4 +62,9 @@
     </EmbeddedResource>
   </ItemGroup>
 
+   <ItemGroup>
+    <ProjectReference Include="..\WPF.CryptoGen.Application\WPF.CryptoGen.Application.csproj" />
+	   <ProjectReference Include="..\WPF.CryptoGen.Infrastructure\WPF.CryptoGen.Infrastructure.csproj" />
+	<ProjectReference Include="..\WPF.CryptoGen.Domain\WPF.CryptoGen.Domain.csproj" />
+   </ItemGroup>
 </Project>

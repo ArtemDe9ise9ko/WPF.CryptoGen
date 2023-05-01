@@ -5,4 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+	<ItemGroup>
+		<ProjectReference Include="..\WPF.CryptoGen.Domain\WPF.CryptoGen.Domain.csproj" />
+	</ItemGroup>
 </Project>

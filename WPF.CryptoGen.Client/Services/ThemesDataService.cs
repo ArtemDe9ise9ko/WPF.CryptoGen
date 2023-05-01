@@ -27,7 +27,7 @@ namespace WPF.CryptoGen.Client.Services
         {
             try
             {
-                Application.Current.Resources.MergedDictionaries[1].Source = new Uri(GetThemeByName(theme).Path, UriKind.RelativeOrAbsolute);
+                System.Windows.Application.Current.Resources.MergedDictionaries[1].Source = new Uri(GetThemeByName(theme).Path, UriKind.RelativeOrAbsolute);
             }
             catch (Exception ex)
             {

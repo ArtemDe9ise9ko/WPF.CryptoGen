@@ -3,30 +3,30 @@ using System.Threading.Tasks;
 using System.Threading;
 using System;
 using WPF.CryptoGen.Client.Interfaces;
-using WPF.CryptoGen.Client.Stores;
 using WPF.CryptoGen.Client.Model;
 using WPF.CryptoGen.Client.Services;
 using System.Collections.ObjectModel;
-using System.Windows;
 using System.Windows.Threading;
+using WPF.CryptoGen.Client.Core;
 
 namespace WPF.CryptoGen.Client.ViewModels
 {
-    public class CryptocurrencyViewModel : ViewModelBase
+    public class CryptocurrencyViewModel : MainViewModel
     {
         public PlotModel PlotModel { get; }
         public PlotController PlotController { get;}
         public ObservableCollection<MainModel> CoinListMain { get; set;}
         public string ApiName { get;}
-        private string _timerText;
-        public string TimerText { get { return _timerText; } set { _timerText = value; OnPropertyChanged("TimerText"); }}
-
         private readonly IPlotService _plotService;
         private readonly IHttpService _httpService;
         private static CancellationTokenSource _tokenSource = new();
+
+        private string _timerText;
+        public string TimerText { get { return _timerText; } set { _timerText = value; OnPropertyChanged("TimerText"); }}
         double counter = Constants.INTERVAL_REQUEST;
 
-        public CryptocurrencyViewModel(IPlotService plotService, IHttpService httpService)
+        public CryptocurrencyViewModel(IPlotService plotService, IHttpService httpService, 
+            ICurrentNavigation currentNavigation)  : base(currentNavigation)
         {
             _plotService = plotService;
             _httpService = httpService;
@@ -83,7 +83,7 @@ namespace WPF.CryptoGen.Client.ViewModels
                     await _httpService.SendAsync<AssetsRoot>(currentUrl, TimeSpan.FromSeconds(Constants.INTERVAL_REQUEST), result =>
                     {
                         var models = ConvertModelService.ConvertModel(result);
-                        Application.Current.Dispatcher.Invoke(() =>
+                        System.Windows.Application.Current.Dispatcher.Invoke(() =>
                         {
                             CoinListMain.Clear();
                             foreach (var model in models)

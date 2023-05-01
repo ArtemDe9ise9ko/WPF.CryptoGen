@@ -32,7 +32,7 @@
             <StackPanel  Orientation="Horizontal">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="190"/>
+                        <ColumnDefinition Width="185"/>
                         <ColumnDefinition Width="150"/>
                         <ColumnDefinition Width="75"/>
                         <ColumnDefinition Width="150"/>

@@ -1,4 +1,4 @@
-﻿using WPF.CryptoGen.Client.Stores;
+﻿using WPF.CryptoGen.Client.Core;
 
 namespace WPF.CryptoGen.Client.Command
 {

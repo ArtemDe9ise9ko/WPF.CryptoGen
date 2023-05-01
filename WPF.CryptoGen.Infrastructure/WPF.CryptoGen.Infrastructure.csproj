@@ -5,4 +5,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+	<ItemGroup>
+		<ProjectReference Include="..\WPF.CryptoGen.Application\WPF.CryptoGen.Application.csproj" />
+		<ProjectReference Include="..\WPF.CryptoGen.Domain\WPF.CryptoGen.Domain.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Services\" />
+	</ItemGroup>
+	
 </Project>

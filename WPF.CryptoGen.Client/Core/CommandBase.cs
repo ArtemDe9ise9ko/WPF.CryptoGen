@@ -1,7 +1,7 @@
 ﻿using System.Windows.Input;
 using System;
 
-namespace WPF.CryptoGen.Client.Command
+namespace WPF.CryptoGen.Client.Core
 {
     public abstract class CommandBase : ICommand
     {

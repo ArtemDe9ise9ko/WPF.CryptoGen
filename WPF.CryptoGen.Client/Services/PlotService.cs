@@ -15,9 +15,9 @@ namespace WPF.CryptoGen.Client.Services
 {
     public class PlotService : IPlotService
     {
-        private readonly Color _textColor = (Color)new ColorConverter().ConvertFromString(Application.Current.FindResource("TextColor").ToString());
-        private readonly Color _lineSeriesColor = (Color)new ColorConverter().ConvertFromString(Application.Current.FindResource("LineSeriesColor").ToString());
-        private readonly Color _areaSeriesColor = (Color)new ColorConverter().ConvertFromString(Application.Current.FindResource("AreaSeriesColor").ToString());
+        private readonly Color _textColor = (Color)new ColorConverter().ConvertFromString(System.Windows.Application.Current.FindResource("TextColor").ToString());
+        private readonly Color _lineSeriesColor = (Color)new ColorConverter().ConvertFromString(System.Windows.Application.Current.FindResource("LineSeriesColor").ToString());
+        private readonly Color _areaSeriesColor = (Color)new ColorConverter().ConvertFromString(System.Windows.Application.Current.FindResource("AreaSeriesColor").ToString());
         public PlotController GetPlotController()
         {
             return Get();

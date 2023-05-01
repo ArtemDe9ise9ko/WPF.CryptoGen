@@ -59,7 +59,7 @@
             <RadioButton 
             Style="{StaticResource NavButton}"
             Margin="10, 0"
-            Command="{Binding NavigateExchangesCommand}"
+            Command="{Binding NavigateToExchangeCommand}"
             Grid.Column="3"
             Cursor="Hand"
             VerticalAlignment="Top">
@@ -76,7 +76,7 @@
             Cursor="Hand"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
-            Command="{Binding NavigateSettingsCommand}"
+            Command="{Binding NavigateToSettingsCommand}"
             Style="{DynamicResource NavButton}">
 
                 <StackPanel Orientation="Horizontal">

@@ -1,29 +1,19 @@
-﻿using System.CodeDom.Compiler;
-using System.Reflection.Metadata;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using WPF.CryptoGen.Client.Command;
-using WPF.CryptoGen.Client.Interfaces;
-using WPF.CryptoGen.Client.Services;
+using WPF.CryptoGen.Client.Core;
 
 namespace WPF.CryptoGen.Client.ViewModels
 {
-    public class SettingsViewModel : ViewModelBase
+    public class SettingsViewModel : MainViewModel
     {
         public ICommand ApiChangeCommand { get; }
         public ICommand ThemeChangeCommand { get; }
         public ICommand  LanguageChangeCommand { get;}
-        public SettingsViewModel()
+        public SettingsViewModel(ICurrentNavigation currentNavigation) : base(currentNavigation)
         {
             ApiChangeCommand = new ChangeApiCommand();
             ThemeChangeCommand = new ChangeThemesCommand();
             LanguageChangeCommand = new ChangeLanguageCommand();
         }
-
-        //public void Execute(object parameter)
-        //{
-        //    IThemesDataService themesDataService = new ThemesDataService();
-
-        //    themesDataService.SetTheme((string)parameter);
-        //}
     }
 }

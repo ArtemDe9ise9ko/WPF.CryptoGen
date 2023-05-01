@@ -1,14 +1,12 @@
 ﻿using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System;
-using WPF.CryptoGen.Client.Interfaces;
-using WPF.CryptoGen.Client.Model;
-using System.Windows;
 using System.Collections;
 using System.IO;
 using System.Reflection;
 using System.Resources;
 using System.Linq;
+using WPF.CryptoGen.Domain.Models;
 
 namespace WPF.CryptoGen.Client.Services
 {
@@ -74,5 +72,10 @@ namespace WPF.CryptoGen.Client.Services
         {
             return themes_.Where(x => x.Name == theme).FirstOrDefault();
         }
+    }
+
+    public interface IThemesDataService
+    {
+        void SetTheme(string theme);
     }
 }

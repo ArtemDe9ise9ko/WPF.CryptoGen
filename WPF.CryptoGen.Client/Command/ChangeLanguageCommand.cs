@@ -1,5 +1,4 @@
 ﻿using WPF.CryptoGen.Client.Core;
-using WPF.CryptoGen.Client.Interfaces;
 using WPF.CryptoGen.Client.Services;
 
 namespace WPF.CryptoGen.Client.Command

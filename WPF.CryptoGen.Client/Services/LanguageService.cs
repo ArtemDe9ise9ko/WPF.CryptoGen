@@ -1,5 +1,4 @@
 ﻿using System.Globalization;
-using WPF.CryptoGen.Client.Interfaces;
 
 namespace WPF.CryptoGen.Client.Services
 {
@@ -9,5 +8,9 @@ namespace WPF.CryptoGen.Client.Services
 			WPFLocalizeExtension.Engine.LocalizeDictionary.Instance.Culture =
                 CultureInfo.GetCultureInfo(lang);
 		}
+    }
+    internal interface ILanguageService
+    {
+         void SetLanguage(string lang);
     }
 }

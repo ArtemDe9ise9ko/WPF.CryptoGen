@@ -1,4 +1,4 @@
-﻿namespace WPF.CryptoGen.Client.Model
+﻿namespace WPF.CryptoGen.Domain.Models
 {
     public class Theme
     {

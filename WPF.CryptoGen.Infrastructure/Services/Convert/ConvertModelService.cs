@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using WPF.CryptoGen.Client.Model;
+﻿using WPF.CryptoGen.Domain.Models;
 
-namespace WPF.CryptoGen.Client.Services
+namespace WPF.CryptoGen.Infrastructure.Services.Convert
 {
     public class ConvertModelService
     {

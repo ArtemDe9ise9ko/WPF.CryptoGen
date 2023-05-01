@@ -10,16 +10,16 @@
              lex:ResxLocalizationProvider.DefaultDictionary="Langs"
              xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="1000"
+             d:DesignHeight="720" d:DesignWidth="1050"
              Background="{DynamicResource NavBackgroundColor}">
-        <Grid MaxWidth="1000" Margin="20 10 0 10">
+        <Grid Margin="20 10 0 10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="585" />
-                <ColumnDefinition Width="15" />
+                <ColumnDefinition Width="35" />
             <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
@@ -86,7 +86,7 @@
 
         <Button 
             Grid.Column="5"
-            HorizontalAlignment="Center"
+            HorizontalAlignment="Right"
             VerticalAlignment="Top"
             Style="{DynamicResource ExitButton}">
             <StackPanel Orientation="Horizontal">

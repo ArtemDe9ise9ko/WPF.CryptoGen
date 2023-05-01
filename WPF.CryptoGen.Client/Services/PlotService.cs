@@ -6,8 +6,7 @@ using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows;
-using WPF.CryptoGen.Client.Interfaces;
-using WPF.CryptoGen.Client.Model;
+using WPF.CryptoGen.Domain.Constants;
 using HorizontalAlignment = OxyPlot.HorizontalAlignment;
 using VerticalAlignment = OxyPlot.VerticalAlignment;
 
@@ -53,8 +52,8 @@ namespace WPF.CryptoGen.Client.Services
 
             plotModel.Axes.Add(axisLeft);
             plotModel.Axes.Add(axisBottomSeries);
-            plotModel.Axes[0].Maximum = areaSeries.Points.Max(x => x.Y) + Constants.INTEND_Y;
-            plotModel.Axes[1].Maximum = lastDataPoint.X + Constants.INTEND_X;
+            plotModel.Axes[0].Maximum = areaSeries.Points.Max(x => x.Y) + ChartConstants.INTEND_Y;
+            plotModel.Axes[1].Maximum = lastDataPoint.X + ChartConstants.INTEND_X;
             plotModel.PlotAreaBorderThickness = new OxyThickness(1, 0, 0, 1);
             plotModel.PlotAreaBorderColor = OxyColor.FromRgb(_textColor.R, _textColor.G, _textColor.B);
             plotModel.Annotations.Add(horizontalLineAnnotation);
@@ -137,11 +136,17 @@ namespace WPF.CryptoGen.Client.Services
                 Text = string.Format("{0:F2}", lastDataPoint.Y),
                 TextHorizontalAlignment = HorizontalAlignment.Left,
                 TextVerticalAlignment = VerticalAlignment.Bottom,
-                TextPosition = new DataPoint(axisLeft.ActualMinimum + Constants.INTEND_X, lastDataPoint.Y),
+                TextPosition = new DataPoint(axisLeft.ActualMinimum + ChartConstants.INTEND_X, lastDataPoint.Y),
                 Background = OxyColor.FromRgb(_areaSeriesColor.R, _areaSeriesColor.G, _areaSeriesColor.B),
                 TextColor = OxyColor.FromRgb(_textColor.R, _textColor.G, _textColor.B),
                 StrokeThickness = 0.3
             };
         }
+    }
+
+    public interface IPlotService
+    {
+        PlotController GetPlotController();
+        PlotModel GetPlotModel();
     }
 }

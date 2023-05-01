@@ -1,7 +1,6 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 
-namespace WPF.CryptoGen.Client.Services
+namespace WPF.CryptoGen.Infrastructure.Services.Convert
 {
     public class ConvertStringService
     {
@@ -13,7 +12,6 @@ namespace WPF.CryptoGen.Client.Services
             }
             else
             {
-                //return string.Empty;
                 var correct = price.Replace('.', ',');
                 double values = Math.Round(double.Parse(correct), 2);
                 if (values % 1 == 0)

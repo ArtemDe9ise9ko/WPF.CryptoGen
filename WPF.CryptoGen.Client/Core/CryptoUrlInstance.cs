@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
-using WPF.CryptoGen.Client.Model;
+using WPF.CryptoGen.Domain.Constants;
+using WPF.CryptoGen.Domain.Models;
 
 namespace WPF.CryptoGen.Client.Core
 {
@@ -9,9 +10,9 @@ namespace WPF.CryptoGen.Client.Core
 
         private List<string> _cryptoApis  = new List<string>()
         {
-            {Constants.COIN_GECKO},
-            {Constants.COIN_CAP},
-            {Constants.CRYPTING_UP}
+            {ApiConstants.COIN_GECKO},
+            {ApiConstants.COIN_CAP},
+            {ApiConstants.CRYPTING_UP}
         };
 
         public static CryptoUrlInstance GetInstance()

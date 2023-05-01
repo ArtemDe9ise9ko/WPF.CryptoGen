@@ -5,13 +5,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
 	<ItemGroup>
 		<ProjectReference Include="..\WPF.CryptoGen.Application\WPF.CryptoGen.Application.csproj" />
 		<ProjectReference Include="..\WPF.CryptoGen.Domain\WPF.CryptoGen.Domain.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Services\" />
 	</ItemGroup>
 	
 </Project>

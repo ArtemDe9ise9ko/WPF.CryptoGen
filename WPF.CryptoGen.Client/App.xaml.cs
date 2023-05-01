@@ -1,10 +1,11 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Windows;
-using WPF.CryptoGen.Client.Interfaces;
 using WPF.CryptoGen.Client.Services;
 using WPF.CryptoGen.Client.ViewModels;
 using WPF.CryptoGen.Client.Core;
+using WPF.CryptoGen.Infrastructure.Services.Http;
+using WPF.CryptoGen.Application.Interfaces;
 
 namespace WPF.CryptoGen.Client
 {

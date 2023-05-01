@@ -6,21 +6,16 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF.CryptoGen.Client", "WPF.CryptoGen.Client\WPF.CryptoGen.Client.csproj", "{424180D3-8B7E-4138-AD22-D55D208AFC1E}"
 	ProjectSection(ProjectDependencies) = postProject
 		{A4F759AA-BD04-4DBD-97FC-7ACBBA08B4C5} = {A4F759AA-BD04-4DBD-97FC-7ACBBA08B4C5}
-		{BB71C574-AE9E-412D-8DE2-856FC777ED88} = {BB71C574-AE9E-412D-8DE2-856FC777ED88}
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF.CryptoGen.Domain", "WPF.CryptoGen.Domain\WPF.CryptoGen.Domain.csproj", "{A4F759AA-BD04-4DBD-97FC-7ACBBA08B4C5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF.CryptoGen.Application", "WPF.CryptoGen.Application\WPF.CryptoGen.Application.csproj", "{BB71C574-AE9E-412D-8DE2-856FC777ED88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF.CryptoGen.Infrastructure", "WPF.CryptoGen.Infrastructure\WPF.CryptoGen.Infrastructure.csproj", "{CD0B13DD-A0AD-4C3B-A3C9-78A552127E8B}"
 	ProjectSection(ProjectDependencies) = postProject
 		{A4F759AA-BD04-4DBD-97FC-7ACBBA08B4C5} = {A4F759AA-BD04-4DBD-97FC-7ACBBA08B4C5}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF.CryptoGen.Infrastructure", "WPF.CryptoGen.Infrastructure\WPF.CryptoGen.Infrastructure.csproj", "{CD0B13DD-A0AD-4C3B-A3C9-78A552127E8B}"
-	ProjectSection(ProjectDependencies) = postProject
-		{A4F759AA-BD04-4DBD-97FC-7ACBBA08B4C5} = {A4F759AA-BD04-4DBD-97FC-7ACBBA08B4C5}
-		{BB71C574-AE9E-412D-8DE2-856FC777ED88} = {BB71C574-AE9E-412D-8DE2-856FC777ED88}
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF.CryptoGen.Application", "WPF.CryptoGen.Application\WPF.CryptoGen.Application.csproj", "{EACB7603-1368-4365-8D4F-5CE65D68A1FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,14 +31,14 @@ Global
 		{A4F759AA-BD04-4DBD-97FC-7ACBBA08B4C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4F759AA-BD04-4DBD-97FC-7ACBBA08B4C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4F759AA-BD04-4DBD-97FC-7ACBBA08B4C5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BB71C574-AE9E-412D-8DE2-856FC777ED88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BB71C574-AE9E-412D-8DE2-856FC777ED88}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BB71C574-AE9E-412D-8DE2-856FC777ED88}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BB71C574-AE9E-412D-8DE2-856FC777ED88}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CD0B13DD-A0AD-4C3B-A3C9-78A552127E8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CD0B13DD-A0AD-4C3B-A3C9-78A552127E8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD0B13DD-A0AD-4C3B-A3C9-78A552127E8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD0B13DD-A0AD-4C3B-A3C9-78A552127E8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EACB7603-1368-4365-8D4F-5CE65D68A1FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EACB7603-1368-4365-8D4F-5CE65D68A1FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EACB7603-1368-4365-8D4F-5CE65D68A1FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EACB7603-1368-4365-8D4F-5CE65D68A1FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

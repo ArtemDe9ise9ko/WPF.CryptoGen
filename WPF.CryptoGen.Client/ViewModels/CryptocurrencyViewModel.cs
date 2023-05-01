@@ -2,12 +2,14 @@
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-using WPF.CryptoGen.Client.Interfaces;
-using WPF.CryptoGen.Client.Model;
-using WPF.CryptoGen.Client.Services;
 using System.Collections.ObjectModel;
 using System.Windows.Threading;
 using WPF.CryptoGen.Client.Core;
+using WPF.CryptoGen.Domain.Models;
+using WPF.CryptoGen.Domain.Constants;
+using WPF.CryptoGen.Infrastructure.Services.Convert;
+using WPF.CryptoGen.Client.Services;
+using WPF.CryptoGen.Application.Interfaces;
 
 namespace WPF.CryptoGen.Client.ViewModels
 {
@@ -23,7 +25,7 @@ namespace WPF.CryptoGen.Client.ViewModels
 
         private string _timerText;
         public string TimerText { get { return _timerText; } set { _timerText = value; OnPropertyChanged("TimerText"); }}
-        double counter = Constants.INTERVAL_REQUEST;
+        double counter = TimeConstants.INTERVAL_REQUEST;
 
         public CryptocurrencyViewModel(IPlotService plotService, IHttpService httpService, 
             ICurrentNavigation currentNavigation)  : base(currentNavigation)
@@ -49,7 +51,7 @@ namespace WPF.CryptoGen.Client.ViewModels
 
             TimerText = counter.ToString();
 
-            if(counter == 0) counter = Constants.INTERVAL_REQUEST;
+            if (counter == 0) counter = TimeConstants.INTERVAL_REQUEST;
         }
 
         private void FillCoinList()
@@ -59,13 +61,13 @@ namespace WPF.CryptoGen.Client.ViewModels
 
             switch (currentUrl)
             {
-                case Constants.COIN_GECKO:
+                case ApiConstants.COIN_GECKO:
                     CoinGeckoFiller(currentUrl);
                     break;
-                case Constants.COIN_CAP:
+                case ApiConstants.COIN_CAP:
                     CoinCapFiller(currentUrl);
                     break;
-                case Constants.CRYPTING_UP:
+                case ApiConstants.CRYPTING_UP:
                     CryptingUpFiller(currentUrl);
                     break;
             }
@@ -80,7 +82,7 @@ namespace WPF.CryptoGen.Client.ViewModels
             {
                 Task.Run(async () =>
                 {
-                    await _httpService.SendAsync<AssetsRoot>(currentUrl, TimeSpan.FromSeconds(Constants.INTERVAL_REQUEST), result =>
+                    await _httpService.SendAsync<AssetsRoot>(currentUrl, TimeSpan.FromSeconds(TimeConstants.INTERVAL_REQUEST), result =>
                     {
                         var models = ConvertModelService.ConvertModel(result);
                         System.Windows.Application.Current.Dispatcher.Invoke(() =>

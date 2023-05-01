@@ -29,12 +29,13 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <Border BorderThickness="0 0 0 5" BorderBrush="{DynamicResource LineNavBottom}">
             <Grid Grid.Row="0">
                 <components:NavigationBar />
             </Grid>
         </Border>
-        <ContentControl Grid.Row="1" Content="{Binding Navigation.CurrentView}" Margin="20,0.1"/>
+        <ContentControl Grid.Row="1" Content="{Binding Navigation.CurrentView}" Margin="20,0.1,15,0.1"/>
     </Grid>
 </Window>

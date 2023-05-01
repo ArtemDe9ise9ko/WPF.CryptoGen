@@ -1,11 +1,7 @@
 ﻿using Newtonsoft.Json;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.Threading;
-using System;
-using WPF.CryptoGen.Client.Interfaces;
+using WPF.CryptoGen.Application.Interfaces;
 
-namespace WPF.CryptoGen.Client.Services
+namespace WPF.CryptoGen.Infrastructure.Services.Http
 {
     public class HttpService : IHttpService
     {

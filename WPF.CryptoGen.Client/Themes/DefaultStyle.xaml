@@ -153,7 +153,12 @@
         <Setter Property="FontStyle" Value="Normal"/>
         <Setter Property="FontFamily" Value="Gotham Rounded Book"/>
     </Style>
-
+    <Style x:Key="FooterTextBlock" TargetType="TextBlock">
+        <Setter Property="FontStyle" Value="Normal"/>
+        <Setter Property="FontFamily" Value="Gotham Rounded Book"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Foreground" Value="Gray"></Setter>
+    </Style>
     <!--Image-->
     <Style TargetType="Image"></Style>
     <!--CurrencyImage-->

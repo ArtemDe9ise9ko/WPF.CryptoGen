@@ -36,7 +36,7 @@
                         <ColumnDefinition Width="150"/>
                         <ColumnDefinition Width="75"/>
                         <ColumnDefinition Width="150"/>
-                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="130"/>
                         <ColumnDefinition Width="180"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock FontSize="16" Text="{lex:Loc Name}" Margin="60,10,0,10" Foreground="{DynamicResource HeaderTextColor}" Grid.Column="0"/>
@@ -71,7 +71,7 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="40"/>
                         </Grid.RowDefinitions>
-                        <Grid Margin="10,0,15,0">
+                        <Grid Margin="5,0,15,0">
                             <Image Source="{Binding Path}" Style="{DynamicResource CurrencyImage}" />
                         </Grid>
                         <Grid Grid.Column="1">
@@ -81,7 +81,7 @@
                                 <ColumnDefinition Width="95"/>
                                 <ColumnDefinition Width="70"/>
                                 <ColumnDefinition Width="150"/>
-                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="130"/>
                                 <ColumnDefinition Width="180"/>
                                 <ColumnDefinition Width="200"/>
                             </Grid.ColumnDefinitions>
@@ -108,16 +108,23 @@
                             </Grid>
                             <Grid Grid.Column="7">
                                 <!--todo command to next view-->
-                                <Button Content="{Binding Name}" Style="{DynamicResource CurrencyButton}"  Width="110" Height="25" Margin="10,0,0,0" HorizontalAlignment="Left"/>
+                                <Button 
+                                    Content="{Binding Name}" 
+                                    Style="{DynamicResource CurrencyButton}"  
+                                    Width="110" Height="25" 
+                                    Margin="10,0,0,0" 
+                                    HorizontalAlignment="Left"
+                                    />
                             </Grid>
+                            <!--Command="{Binding NavigateCryptoCurrentCommand}"-->
                         </Grid>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <Border Grid.Row="3" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource LineTableColor}">
-            <StackPanel Orientation="Horizontal">
+        <Border Grid.Row="3" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource LineTableColor}" Background="Transparent">
+            <StackPanel Orientation="Horizontal" Margin="5">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="300"/>
@@ -126,11 +133,11 @@
                         <ColumnDefinition Width="280"/>
                         <ColumnDefinition Width="80"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="{lex:Loc TimerUpdate}" Margin="0,25" FontSize="14" Grid.Column="0" Foreground="Gray" HorizontalAlignment="Right"/>
-                    <TextBlock Text="{Binding TimerText}" Margin="5,25" FontSize="14" Grid.Column="1" Foreground="Gray" HorizontalAlignment="Left"/>
-                    <TextBlock Text="{lex:Loc Seconds}" Margin="0,25" FontSize="14" Grid.Column="2" Foreground="Gray" HorizontalAlignment="Left"/>
-                    <TextBlock FontSize="14" Text="{lex:Loc Api used}" Margin="0,25" Foreground="Gray" Grid.Column="3" HorizontalAlignment="Right"/>
-                    <TextBlock FontSize="14" Text="{Binding ApiName}" Margin="5,25,0,25" Foreground="Gray" Grid.Column="4"/>
+                    <TextBlock Text="{lex:Loc TimerUpdate}" Margin="0,25" Grid.Column="0" Style="{DynamicResource FooterTextBlock}" HorizontalAlignment="Right"/>
+                    <TextBlock Text="{Binding TimerText}" Margin="5,25" Grid.Column="1" Style="{DynamicResource FooterTextBlock}" HorizontalAlignment="Left"/>
+                    <TextBlock Text="{lex:Loc Seconds}" Margin="0,25" Grid.Column="2" Style="{DynamicResource FooterTextBlock}" HorizontalAlignment="Left"/>
+                    <TextBlock Text="{lex:Loc Api used}" Margin="0,25" Grid.Column="3" Style="{DynamicResource FooterTextBlock}" HorizontalAlignment="Right"/>
+                    <TextBlock Text="{Binding ApiName}" Margin="5,25,0,25" Grid.Column="4" Style="{DynamicResource FooterTextBlock}" HorizontalAlignment="Left"/>
                 </Grid>
             </StackPanel>
         </Border>

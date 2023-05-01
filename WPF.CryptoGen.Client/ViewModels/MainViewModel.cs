@@ -1,8 +1,4 @@
-﻿using System.Windows.Input;
-using WPF.CryptoGen.Client.Command;
-using WPF.CryptoGen.Client.Interfaces;
-using WPF.CryptoGen.Client.Services;
-using WPF.CryptoGen.Client.Stores;
+﻿using WPF.CryptoGen.Client.Stores;
 
 namespace WPF.CryptoGen.Client.ViewModels
 {

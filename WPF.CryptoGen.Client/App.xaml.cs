@@ -2,7 +2,6 @@
 using System;
 using System.Windows;
 using WPF.CryptoGen.Client.Interfaces;
-using WPF.CryptoGen.Client.Model;
 using WPF.CryptoGen.Client.Services;
 using WPF.CryptoGen.Client.Stores;
 using WPF.CryptoGen.Client.ViewModels;

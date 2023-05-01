@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
+using System.Windows.Input;
 
 namespace WPF.CryptoGen.Client
 {
@@ -7,6 +9,18 @@ namespace WPF.CryptoGen.Client
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void DragLeftButton(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                DragMove();
+            }
+            catch (Exception)
+            {
+                //throw;
+            }
         }
     }
 }

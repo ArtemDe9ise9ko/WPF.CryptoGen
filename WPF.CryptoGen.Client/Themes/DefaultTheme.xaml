@@ -20,6 +20,4 @@
 
     <SolidColorBrush x:Key="ListBoxIsMouseOver" Color="#e2c0fa"/>
     <SolidColorBrush x:Key="ListBoxIsSelected" Color="#dfb9fa"/>
-    <!--<SolidColorBrush x:Key="LineSeriesColor" Color="#42fa2d" f5f/>-->
-    <!--<SolidColorBrush x:Key="AxisTextColor" Color="#fff"/>-->
 </ResourceDictionary>

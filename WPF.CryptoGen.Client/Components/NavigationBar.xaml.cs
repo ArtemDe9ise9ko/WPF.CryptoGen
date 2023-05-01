@@ -24,5 +24,17 @@ namespace WPF.CryptoGen.Client.Components
         {
             InitializeComponent();
         }
+
+        private void CloseUp(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                Window.GetWindow(this).Close();
+            }
+            catch(Exception)
+            {
+
+            }
+        }
     }
 }

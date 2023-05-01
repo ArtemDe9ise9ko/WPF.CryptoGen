@@ -19,15 +19,7 @@ namespace WPF.CryptoGen.Client.ViewModels
         public ObservableCollection<MainModel> CoinListMain { get; set;}
         public string ApiName { get;}
         private string _timerText;
-        public string TimerText
-        {
-            get { return _timerText; }
-            set
-            {
-                _timerText = value;
-                OnPropertyChanged("TimerText");
-            }
-        }
+        public string TimerText { get { return _timerText; } set { _timerText = value; OnPropertyChanged("TimerText"); }}
 
         private readonly IPlotService _plotService;
         private readonly IHttpService _httpService;

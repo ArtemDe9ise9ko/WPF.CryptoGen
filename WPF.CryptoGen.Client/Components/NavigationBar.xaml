@@ -12,34 +12,36 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1000"
              Background="{DynamicResource NavBackgroundColor}">
-    <Grid MaxWidth="1000" Margin="20 10" >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="auto" />
+        <Grid MaxWidth="1000" Margin="20 10 0 10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="585" />
+                <ColumnDefinition Width="15" />
             <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        
-        <StackPanel 
+            </Grid.ColumnDefinitions>
+
+            <StackPanel 
             Grid.Column="0"
             VerticalAlignment="Top"
             Height="30"
             Margin="8"
             Orientation="Horizontal">
 
-            <fa:IconImage Icon="FaceGrin" Foreground="{DynamicResource NavTextColor}"/>
-        </StackPanel>
-        
-        <TextBlock
+                <fa:IconImage Icon="FaceGrin" Foreground="{DynamicResource NavTextColor}"/>
+            </StackPanel>
+
+            <TextBlock
             Grid.Column="1"
             FontSize="20"
             Padding="0 8 0 0"
             FontWeight="Bold"
             Text="Logo"
             Foreground="{DynamicResource NavTextColor}"/>
-        
-        <RadioButton 
+
+            <RadioButton 
             Style="{StaticResource NavButton}"
             IsChecked="True"
             Margin="20, 0"
@@ -48,13 +50,13 @@
             Cursor="Hand"
             VerticalAlignment="Top">
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{lex:Loc Cryptocurrencies}"
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{lex:Loc Cryptocurrencies}"
                            Style="{StaticResource menuButtonText}"/>
-            </StackPanel>
-        </RadioButton>
+                </StackPanel>
+            </RadioButton>
 
-        <RadioButton 
+            <RadioButton 
             Style="{StaticResource NavButton}"
             Margin="10, 0"
             Command="{Binding NavigateExchangesCommand}"
@@ -62,13 +64,13 @@
             Cursor="Hand"
             VerticalAlignment="Top">
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{lex:Loc Exchanges}"
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{lex:Loc Exchanges}"
                            Style="{StaticResource menuButtonText}"/>
-            </StackPanel>
-        </RadioButton>
+                </StackPanel>
+            </RadioButton>
 
-        <RadioButton 
+            <RadioButton 
             Grid.Column="4"
             Margin="10,0"
             Cursor="Hand"
@@ -77,9 +79,19 @@
             Command="{Binding NavigateSettingsCommand}"
             Style="{DynamicResource NavButton}">
 
+                <StackPanel Orientation="Horizontal">
+                    <fa:IconImage Icon="Gear" Foreground="{DynamicResource NavTextColor}" Height="30"/>
+                </StackPanel>
+            </RadioButton>
+
+        <Button 
+            Grid.Column="5"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Style="{DynamicResource ExitButton}">
             <StackPanel Orientation="Horizontal">
-                <fa:IconImage Icon="Gear" Foreground="{DynamicResource NavTextColor}" Height="30"/>
+                <fa:IconImage Icon="Xmark" Foreground="{DynamicResource NavTextColor}" Height="10" MouseLeftButtonDown="CloseUp"/>
             </StackPanel>
-        </RadioButton>
+        </Button>
     </Grid>
 </UserControl>

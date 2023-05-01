@@ -7,19 +7,18 @@
              xmlns:viewmodels="clr-namespace:WPF.CryptoGen.Client.ViewModels" 
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1000">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-        <!--todo Border next may be a progress bar-->
-        <local:NavigationBar Grid.Row="0" BorderThickness="0, 0, 0, 5" BorderBrush="{DynamicResource LineNavBottom}" DataContext="{Binding NavigationBarViewModel}"/>
-        
-        <ContentControl
+            <!--todo Border next may be a progress bar-->
+                <local:NavigationBar Grid.Row="0" BorderThickness="0 0 0 5" BorderBrush="{DynamicResource LineNavBottom}" DataContext="{Binding NavigationBarViewModel}"/>
+            <ContentControl
             Grid.Row="1"
             MaxWidth="1000"
             Content="{Binding ContentViewModel}" />
-        
-    </Grid>
+
+        </Grid>
 </UserControl>

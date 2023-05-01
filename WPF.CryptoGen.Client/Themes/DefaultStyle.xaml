@@ -29,8 +29,6 @@
     <Style x:Key="CurrencyButton" TargetType="Button">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Foreground" Value="{DynamicResource TextColor}" />
-        <!--<Setter Property="BorderThickness" Value="2,0,2,0" />
-        <Setter Property="BorderBrush" Value="{DynamicResource IsCheckedTag}" />-->
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
             <Setter.Value>
@@ -45,13 +43,26 @@
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{DynamicResource IsMouseOverCurrencyBottom}"></Setter>
                 <Setter Property="Foreground" Value="{DynamicResource TextColor}"></Setter>
-                <!--<Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="Button">
-                            <TextBlock Text="{TemplateBinding Content}" TextDecorations="Underline" />
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>-->
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="ExitButton" TargetType="Button">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource TextColor}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="Transparent" BorderThickness="0">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Transparent"></Setter>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -118,7 +129,19 @@
             </MultiTrigger>
         </Style.Triggers>
     </Style>
-
+    <!--BorderWindow-->
+    <Style x:Key="BorderWindow" TargetType="Border">
+        <Setter Property="CornerRadius" Value="5"></Setter>
+        <Setter Property="Background" Value="Transparent"></Setter>
+        <Setter Property="BorderBrush" Value="{DynamicResource ContentBackgroundColor}"></Setter>
+        <Setter Property="BorderThickness" Value="0.3"></Setter>
+    </Style>
+    <Style x:Key="BorderNavWindow" TargetType="Border">
+        <Setter Property="CornerRadius" Value="5"></Setter>
+        <Setter Property="Background" Value="Transparent"></Setter>
+        <Setter Property="BorderBrush" Value="{DynamicResource ContentBackgroundColor}"></Setter>
+        <Setter Property="BorderThickness" Value="0.3, 0.3,0,0"></Setter>
+    </Style>
     <!--TextBlock-->
     <Style x:Key="menuButtonText" TargetType="TextBlock">
         <Setter Property="Foreground" Value="{DynamicResource NavTextColor}"/>

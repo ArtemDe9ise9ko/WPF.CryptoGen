@@ -8,24 +8,27 @@
         xmlns:components="clr-namespace:WPF.CryptoGen.Client.Components"
         mc:Ignorable="d"
         Title="MainWindow" Height="750" Width="1050"
-        Background="{DynamicResource ContentBackgroundColor}">
-    <Grid>
-        <Grid.Resources>
-            <DataTemplate DataType="{x:Type viewmodels:CryptocurrencyViewModel}">
-                <views:CryptocurrencyView/>
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type viewmodels:ExchangesViewModel}">
-                <views:ExchangesView/>
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type viewmodels:SettingsViewModel}">
-                <views:SettingsView/>
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type viewmodels:LayoutViewModel}">
-                <components:Layout />
-            </DataTemplate>
-        </Grid.Resources>
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        ResizeMode="CanResizeWithGrip" 
+        MouseLeftButtonDown="DragLeftButton">
+        <Grid Background="{DynamicResource ContentBackgroundColor}">
+            <Grid.Resources>
+                <DataTemplate DataType="{x:Type viewmodels:CryptocurrencyViewModel}">
+                    <views:CryptocurrencyView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewmodels:ExchangesViewModel}">
+                    <views:ExchangesView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewmodels:SettingsViewModel}">
+                    <views:SettingsView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewmodels:LayoutViewModel}">
+                    <components:Layout />
+                </DataTemplate>
+            </Grid.Resources>
 
-        <ContentControl Content="{Binding CurrentViewModel}" />
-    </Grid>
-
+            <ContentControl Content="{Binding CurrentViewModel}" />
+        </Grid>
 </Window>

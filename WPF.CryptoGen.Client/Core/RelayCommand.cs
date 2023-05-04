@@ -13,10 +13,7 @@ namespace WPF.CryptoGen.Client.Core
             add => CommandManager.RequerySuggested += value;
             remove => CommandManager.RequerySuggested -= value;
         }
-        public bool CanExecute(object parameter)
-        {
-            return _canExecute(parameter);
-        }
+        public bool CanExecute(object parameter) => true;
         public void Execute(object parameter)
         {
             _execute(parameter);

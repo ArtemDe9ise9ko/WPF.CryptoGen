@@ -25,6 +25,9 @@
                 <DataTemplate DataType="{x:Type viewmodels:SettingsViewModel}">
                     <views:SettingsView/>
                 </DataTemplate>
+                <DataTemplate DataType="{x:Type viewmodels:DetailViewModel}">
+                    <views:DetailView/>
+                </DataTemplate>
         </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>

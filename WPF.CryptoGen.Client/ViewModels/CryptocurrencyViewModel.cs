@@ -1,5 +1,4 @@
-﻿using OxyPlot;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Threading;
 using System;
 using System.Collections.ObjectModel;
@@ -8,18 +7,14 @@ using WPF.CryptoGen.Client.Core;
 using WPF.CryptoGen.Domain.Models;
 using WPF.CryptoGen.Domain.Constants;
 using WPF.CryptoGen.Infrastructure.Services.Convert;
-using WPF.CryptoGen.Client.Services;
 using WPF.CryptoGen.Application.Interfaces;
 
 namespace WPF.CryptoGen.Client.ViewModels
 {
     public class CryptocurrencyViewModel : MainViewModel
     {
-        public PlotModel PlotModel { get; }
-        public PlotController PlotController { get;}
         public ObservableCollection<MainModel> CoinListMain { get; set;}
         public string ApiName { get;}
-        private readonly IPlotService _plotService;
         private readonly IHttpService _httpService;
         private static CancellationTokenSource _tokenSource = new();
 
@@ -27,10 +22,9 @@ namespace WPF.CryptoGen.Client.ViewModels
         public string TimerText { get { return _timerText; } set { _timerText = value; OnPropertyChanged("TimerText"); }}
         double counter = TimeConstants.INTERVAL_REQUEST;
 
-        public CryptocurrencyViewModel(IPlotService plotService, IHttpService httpService, 
+        public CryptocurrencyViewModel(IHttpService httpService, 
             ICurrentNavigation currentNavigation)  : base(currentNavigation)
         {
-            _plotService = plotService;
             _httpService = httpService;
 
             var _timer = new DispatcherTimer();
@@ -41,9 +35,6 @@ namespace WPF.CryptoGen.Client.ViewModels
             FillCoinList();
 
             ApiName = CryptoUrlInstance.GetInstance().GetTopCryptoName();
-
-            PlotController = _plotService.GetPlotController();
-            PlotModel = _plotService.GetPlotModel();
         }
         private void Timer_Tick(object sender, EventArgs e)
         {

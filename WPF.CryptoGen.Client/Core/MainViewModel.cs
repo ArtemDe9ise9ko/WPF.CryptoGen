@@ -17,6 +17,7 @@ namespace WPF.CryptoGen.Client.Core
         public RelayCommand NavigateCryptoCurrenciesCommand { get; set; }
         public RelayCommand NavigateToExchangeCommand { get; set; }
         public RelayCommand NavigateToSettingsCommand { get; set; }
+        public RelayCommand NavigateToDetailCommand { get; set; }
 
         public MainViewModel(ICurrentNavigation currentNavigation)
         {
@@ -24,6 +25,7 @@ namespace WPF.CryptoGen.Client.Core
             NavigateToExchangeCommand = new RelayCommand(o => { Navigation.NavigateTo<ExchangeViewModel>(); }, o => true);
             NavigateCryptoCurrenciesCommand = new RelayCommand(o => { Navigation.NavigateTo<CryptocurrencyViewModel>(); }, o => true);
             NavigateToSettingsCommand = new RelayCommand(o => { Navigation.NavigateTo<SettingsViewModel>(); }, o => true);
+            NavigateToDetailCommand = new RelayCommand(o => { Navigation.NavigateTo<DetailViewModel>(); }, o => true);
         }
     }
 }

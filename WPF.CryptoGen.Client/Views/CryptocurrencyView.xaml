@@ -4,8 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:lex="http://wpflocalizeextension.codeplex.com"
-             xmlns:local="clr-namespace:WPF.CryptoGen.Client.Views"
-             xmlns:oxy="http://oxyplot.org/wpf"
+             xmlns:local="clr-namespace:WPF.CryptoGen.Client.Core"
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="1000">
     <Grid>
@@ -48,8 +47,9 @@
                 </Grid>
             </StackPanel>
         </Border>
-        
+
         <ListBox 
+            x:Name="CoinListMain"
             Grid.Row="2" 
             ItemsSource="{Binding CoinListMain}" 
             Background="{DynamicResource ContentBackgroundColor}" 
@@ -83,7 +83,7 @@
                                 <ColumnDefinition Width="150"/>
                                 <ColumnDefinition Width="130"/>
                                 <ColumnDefinition Width="180"/>
-                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="130"/>
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Column="0" >
                                 <TextBlock Text="{Binding Symbol}" Style="{DynamicResource CurrencySymbol}"/>
@@ -108,47 +108,45 @@
                             </Grid>
                             <Grid Grid.Column="7">
                                 <!--todo command to next view-->
-                                <Button 
-                                    Content="{Binding Name}" 
+                                <TextBlock>
+                                    <Button 
                                     Style="{DynamicResource CurrencyButton}"  
-                                    Width="110" Height="25" 
-                                    Margin="10,0,0,0" 
-                                    HorizontalAlignment="Left"
-                                    />
+                                    Width="120" Height="25" 
+                                    Margin="10,10,0,0"
+                                    Content="{Binding Name}"
+                                    Command="{Binding ElementName=CoinListMain, Path=DataContext.NavigateToDetailCommand}"
+                                    CommandParameter="{Binding}">
+                                        <!--<Button.Content>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" FontSize="14" Margin="10,0"/>
+                                            </StackPanel>
+                                        </Button.Content>-->
+                                    </Button>
+                                </TextBlock>
                             </Grid>
-                            <!--Command="{Binding NavigateCryptoCurrentCommand}"-->
                         </Grid>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-
         <Border Grid.Row="3" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource LineTableColor}" Background="Transparent">
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="300"/>
                         <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="200"/>
-                        <ColumnDefinition Width="280"/>
-                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="600"/>
+                        <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Text="{lex:Loc TimerUpdate}" Margin="0,25" Grid.Column="0" Style="{DynamicResource FooterTextBlock}" HorizontalAlignment="Right"/>
                     <TextBlock Text="{Binding TimerText}" Margin="5,25" Grid.Column="1" Style="{DynamicResource FooterTextBlock}" HorizontalAlignment="Left"/>
                     <TextBlock Text="{lex:Loc Seconds}" Margin="0,25" Grid.Column="2" Style="{DynamicResource FooterTextBlock}" HorizontalAlignment="Left"/>
                     <TextBlock Text="{lex:Loc Api used}" Margin="0,25" Grid.Column="3" Style="{DynamicResource FooterTextBlock}" HorizontalAlignment="Right"/>
-                    <TextBlock Text="{Binding ApiName}" Margin="5,25,0,25" Grid.Column="4" Style="{DynamicResource FooterTextBlock}" HorizontalAlignment="Left"/>
+                    <TextBlock Text="{Binding ApiName}" Margin="5,25" Grid.Column="4" Style="{DynamicResource FooterTextBlock}" HorizontalAlignment="Right"/>
                 </Grid>
             </StackPanel>
         </Border>
-
-        <!--<oxy:PlotView 
-            Margin="10"
-            Grid.Row="1"
-            Model="{Binding PlotModel}"
-            Background="Transparent"
-            Controller="{Binding PlotController}">
-        </oxy:PlotView>-->
 
     </Grid>
 </UserControl>

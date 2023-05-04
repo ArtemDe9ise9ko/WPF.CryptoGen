@@ -1,5 +1,5 @@
-﻿using WPF.CryptoGen.Client.Core;
-using WPF.CryptoGen.Client.Services;
+﻿using WPF.CryptoGen.Client.Builders;
+using WPF.CryptoGen.Client.Core;
 
 namespace WPF.CryptoGen.Client.Command
 {
@@ -7,7 +7,7 @@ namespace WPF.CryptoGen.Client.Command
     {
         public override void Execute(object parameter)
         {
-            ILanguageService themesDataService = new LanguageService();
+            ILanguagesBuilder themesDataService = new LanguagesBuilder();
 
             themesDataService.SetLanguage((string)parameter);
         }

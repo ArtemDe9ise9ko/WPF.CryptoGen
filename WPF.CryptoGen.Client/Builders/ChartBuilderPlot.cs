@@ -10,9 +10,9 @@ using WPF.CryptoGen.Domain.Constants;
 using HorizontalAlignment = OxyPlot.HorizontalAlignment;
 using VerticalAlignment = OxyPlot.VerticalAlignment;
 
-namespace WPF.CryptoGen.Client.Services
+namespace WPF.CryptoGen.Client.Builders
 {
-    public class PlotService : IPlotService
+    public class ChartBuilderPlot : IChartBuilderPlot
     {
         private readonly Color _textColor = (Color)new ColorConverter().ConvertFromString(System.Windows.Application.Current.FindResource("TextColor").ToString());
         private readonly Color _lineSeriesColor = (Color)new ColorConverter().ConvertFromString(System.Windows.Application.Current.FindResource("LineSeriesColor").ToString());
@@ -144,7 +144,7 @@ namespace WPF.CryptoGen.Client.Services
         }
     }
 
-    public interface IPlotService
+    public interface IChartBuilderPlot
     {
         PlotController GetPlotController();
         PlotModel GetPlotModel();

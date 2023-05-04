@@ -8,13 +8,13 @@ using System.Resources;
 using System.Linq;
 using WPF.CryptoGen.Domain.Models;
 
-namespace WPF.CryptoGen.Client.Services
+namespace WPF.CryptoGen.Client.Builders
 {
-    public class ThemesDataService : IThemesDataService
+    public class ThemesBuilder : IThemesBuilder
     {
         private ObservableCollection<Theme> themes_ = new ObservableCollection<Theme>();
 
-        public ThemesDataService()
+        public ThemesBuilder()
         {
             themes_.Add(new Theme() { Name = "Default", Path="Themes/DefaultTheme.xaml" });
 
@@ -74,7 +74,7 @@ namespace WPF.CryptoGen.Client.Services
         }
     }
 
-    public interface IThemesDataService
+    public interface IThemesBuilder
     {
         void SetTheme(string theme);
     }
